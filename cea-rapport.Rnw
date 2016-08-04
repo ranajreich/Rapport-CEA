@@ -1,0 +1,1676 @@
+
+\documentclass[12pt]{article}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{array,multirow,makecell}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption} % ajouter une capption aux figures
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{enumitem}%choisir des labels pour itemize
+\usepackage{color}%ecrire en coulauer
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{wasysym}% écrire pour mille
+\usepackage{gensymb}
+\usepackage[toc,page]{appendix}
+\usepackage{libertine}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+
+
+\def\appendixpage{\vspace*{8cm}
+\begin{center}
+\Huge\textbf{Annexes}
+\end{center}
+}
+\def\appendixname{Annexe}%
+
+\begin{titlepage}
+  \begin{sffamily}
+  \begin{center}
+
+    % Upper part of the page. The '~' is needed because \\
+    % only works if a paragraph has started.
+
+    \textbf{Compte rendu de la 1\ier{} année de thèse}\\[0.5cm]
+    \textbf{Rana JREICH}\\[1cm]
+\textsf{sous la direction de Christine HATTE et
+Eric PARENT}\\[1cm]
+
+    % Title
+ \HRule 
+    { \LARGE{ Analyses statistiques de la distribution verticale du $\Delta {}^{14}\!C$ dans les sols}\\[0.4cm] }
+\HRule \\[1cm]
+
+    \includegraphics[height = 6cm , width = 6cm]{Soil-pic.jpg}
+    \\[1cm]
+\vfill
+
+\includegraphics[width = 2cm,height= 2cm]{logoCEA_quadri_rouge.png}
+\hfill
+\includegraphics[width = 2cm ,height = 2cm]{AgroParisTech.jpg}
+\hfill
+\includegraphics[width = 2cm,height =2cm]{LSCE.jpg}
+
+\vfill
+
+
+    % Bottom of the page
+    {\large 1\ier{}  novembre 2015 — 3 Août 2016}
+
+  \end{center}
+  \end{sffamily}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\section{Introduction Générale}
+\subsection{Intêret de l'éstimation du stock mondial de carbone}
+
+Un des défis majeur qui dommine notre époque, auquel doivent répondre les organismes de contrôle environnementaux, est le \textbf{réchaufement climatique}.\\
+Ce réchaufement est dû à l'émission des gaz à effet de serre d'origine anthropique principalement le $CO_2$ et le méthane.\\
+Divers changements observés conduisent à la conclusion de l'existence d'un réchaufement climatique comme: La réduction de la superficie des glacières, effet géophysiques et sismiques, extinctions d'éspèses, le recul de la banquise et d'autres...\\
+Un autre impact très inquiètant concerne le dégél de Permafrost ou Pergélisol.
+C'est quoi le Permafrost? Le Permafrost est un sol dont la température se maintient au dessous de $0^{\circ} C$ pendant plus de 2 ans consécutifs. Il représente 20 \% de la surface de planète.\\
+En effet cette couche gelée, depuis des millions d'années,  renferme 1700 milliards de tonnes de carbone soit le double du $CO_2$ atmosphérique.\\
+Ainsi le processus de dégel pourrait contribuer à libérer des milliards de tonnes dans l'atmosphère, ainsi plus de gaz à effet de serre, signifie que le réchauffement pourrait être pire que prévu.\\
+On peut voir donc que la situation est très inquiétante et les conséquences immédiates pèseront aussi sur les générations à venir.\\
+Raison pour laquelle il est essentiel de mettre en place plusieurs actions afin de permettre d'épargner des vies à le long terme.\\
+Face au défi climatique, l’accord reconnait une responsabilité partagée mais différenciée des Etats, c’est-à-dire en fonction des capacités respectives et des contextes nationaux différents. En 2015 la 21e conférence des parties à la Convention-cadre des Nations unies sur les changements climatiques a eu lieu à Paris. Chaque année, les participants de cette conférence se réunissent pour décider des mesures à mettre en place, cette fois la limitation du réchauffement climatique mondiale entre 1.5 et 2 $0^{\circ} C$ d'ici 2100.
+L'une des solutions proposées dans le protocole de Kyoto afin réduire les émission des GES était d'augmenter la séquestration du carbone dans le sol.\\
+C'est pourquoi ma thèse a pour intérêt d'évaluer la quantité de carbone dans le sol au niveau mondial, en fonction des divers scénarios comme le changement climatique et le changement d'usage du sol.\\
+Ceci met en évidence l'importance de comprendre la dynamique du carbone dans le sol surtout que le GIEC (groupe d'experts intergouvernementale sur l'évolution du climat) a mis en évidence de grandes incertitudes sur les estimations futures du cycle globale du carbone, en particulier, la réponse du carbone organique des sols face  aux changements de climat et d'usage des terres.\\
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 8cm , width = 12cm]{introduction.png}
+\end{center}
+\end{figure}
+
+Une incertitude forte est portée sur le carbone profond surtout que la plupart des modèles sur la dynamique de carbone sont essentiellement calés à partir des études de carbone pour les premiers 20 où 30 centimètres, ils prennent mal en compte le carbone profond.\\
+Mon travail de thèse a pour objectif de répondre à plusieurs questions: 
+\begin{enumerate}
+\item D'abord, estimer la quantité globale du stock de carbone dans le sol au niveau mondial.
+\item Identifier les facteurs environnementaux (température, Précipitation, type de sol etc..) qui influent le plus sur la dynamique de carbone.
+\item Essayer d'avoir une vision sur la modification de ce stock en cas du réchauffement climatique et changement d'usage de sols. 
+\item Améliorer le plan expérimentale des données afin d'améliorer la précision.
+\end{enumerate}
+\subsection{Court résumé sur l'accumulation du carbone dans le sol et lien avec le $\Delta {}{14}\!C$}
+\paragraph{Cycle de carbone:}
+il existe 4 réservoirs de carbone: l'hydrosphère, la lithosphère, la biosphère et l'atmosphère.\\
+La plus grande partie du carbone terrestre est piégé dans des composés qui participent peu au cycle de carbone comme les roches sédimentaires et les masses d'eaux océanique profondes qui piègent respectivement 50 000 et 39 040 gigatonnes (Gt).\\
+Pourquoi s'intéresse -t-on  plutôt au carbone du sol? le carbone organique du sol représente le plus grand réservoir en interaction avec l'atmosphère, il est estimé entre 1700 et 2000 Gt à 1m de profondeur ce qui est équivalent à 231 années de combustion fossile. En plus, le sol peut être considéré comme puit ou source du carbone, ainsi si le flux est positif on parle de séquestration et s'il est négatif, on parle d'émission.\\
+La végétation piège 650 Gt alors que l'atmosphère 750 Gt, emmagasinant considérablement moins que le sol.\\
+La végétation terrestre piège du carbone d'origine atmosphérique à travers le processus de la production primaire (la photosynthèse). Le carbone par la suite sera envoyé vers le sol, soit à travers ses racines, soit sous forme de matières organiques mortes.\\
+Une grande partie de ce carbone est restitué dans l'atmosphère par des processus de respiration et de décomposition de la matière organique dans le sol. Ce flux est estimé par 120 Gt.\\
+En outre, le flux naturel entre l'atmosphère et l'hydrosphère est exprimé d'un part par la forte solubilité du $CO_2$ dans l'eau des océans et d'autre part par la respiration des êtres vivants marins.\\
+Ce flux estimé par 180 Gt dépend de plusieurs facteurs tel que la température de l'eau des océans (les eaux froides contiennent plus de $CO_2$ dissous que les eaux chaudes).\\
+Dans le passé, le développement de l'agriculture a été la cause principale de l'augmentation du $CO_2$ dans l'atmosphère, mais actuellement la combustion du carbone fossile par l'industrie et les transports représente la contribution principale et libère un flux de 6.5 Gt dans l'atmosphère. Ainsi le déboisement enlève un puits potentiel du $CO_2$ et libère 1.6 Gt. Environ la moitié de ce carbone est réabsorbée par la biosphère et les océans et ceci est du aux processus de respiration et de dissolution.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 8cm , width = 12cm]{la_terre_chauffe_le_cycle_du_carbone.jpg}
+\caption{Cycle de carbone terrestre.}
+\end{center}
+\end{figure}
+
+\textbf{Le cycle de carbone sera-t-il affecté au cas du réchauffement climatique surtout au niveau du sol? Que se passe t'il si on remplace la forêt par une prairie? Est ce que le sol se comportera comme un puit ou comme une source d'émission de carbone ?}
+Quelques questions auxquelles on cherche à trouver des réponses.
+\paragraph{Répartition de la matière organique dans le sol:}
+Le sol est représenté sous forme de strates plus où moins bien définies et continues, le sol est donc caractérisé par cette structure complexe. En pratique la matière organique est principalement présentée dans la partie superficielle du sol et sa concentration diminue en fonction de le profondeur.\\
+Le stock de carbone du sol est défini d'un part par un apport de flux entrants au sol et d'autre part par des vitesses de minéralisation.\\
+Dans le sol, la minéralisation est assurée par la décomposition microbienne de la matière organique. Cette décomposition libère des éléments nutritifs nécessaires à la croissance des plantes et du $CO_2$ dans l'atmosphère.
+Ainsi on peut imaginer la répartition du carbone en 3 compartiments:\\
+Le premier très labile, biodégradable entre 1-5 ans, il recueille 75\% des apports annuels du sol. Le reste peut être répartie en 2 compartiments: l'un caractérisé par un taux de décomposition très lent et dont le temps moyenne de résidence est de 25 ans, et l'autre Stable dont le temps de résidence est de plus de 1000 ans.\\
+Le défit principale est que la méconnaissance des processus gérant la dynamique de carbone dans les sols proviennent de l'absence de répartition des compartiments, par exemple, un carbone qui est piégé longtemps dans le sol et qui se trouve dans l'état passif peut recontribuer au cycle de carbone à cause du changement de type de végétation ou d'usage de sol.\\
+Les flux rentrants sont largement maitrisés par l'homme. En revanche, les vitesses de minéralisation sont variables et moins maitrisées,raison pour laquelle la recherche s'est principalement focalisée sur la dynamique du carbone dans les sols.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale= 0.5]{dynamique-C.png}
+\caption{Répartition de la matière organique dans le sol.}
+\end{center}
+\end{figure}
+L'une des demandes du Protocole de Kyoto en 1992 était la compréhension fondamentale du carbone dans le sol.\\
+Or, il existe une grande incertitude sur les mécanismes et les processus qui peuvent ralentir le processus de minéralisation et protéger le carbone assez longtemps (Inaccéssibilité spatiale, Hydrophobie, Occlusion de la matière organique par aggrégation).
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale= 0.5]{protection.png}
+\caption{Les Processus de protection de la matière organique dans le sol.}
+\end{center}
+\end{figure}
+On a également vu que certains processus avaient plus de poids que d'autres. Mais dans l'ensemble, on ne sait pas hiérarchiser ces processus et on ne connait pas leur poids relatifs.\\
+Cela nous conduit à étudier le carbone à l'échelle globale,en intégrant tous ces processus, et en reliant la résultante aux conditions environnementales.\\
+Le modèle statistique à construire se place en parallèle de la compréhension des processus, et permet d'apporter des réponses aux questions immédiates pour aujourd'hui et pour un futur proche. 
+\paragraph{Description des techniques de traçage isotopique du carbone dans le sol:}
+A l'origine, les données de 200 sites réparties sur tout le globe terrestre ont été collectées à partir d'articles de la littérature.  Mon travail consiste à interpoler les quantités du carbone à partir de mesures de ${}^{13} \! C$ et ${}^{14} \! C$ à différents niveau de profondeur.\\
+Quelles sont les techniques utilisées afin de tracer la dynamique du carbone dans le sol?\\
+Afin de représenter la matière organique (M.O), de la spécifier, de suivre et de donner une cinétique, des méthodes de traçage isotopiques ont été développées telles que le traçage isotopique en ${}^{13} \! C$. Cette technique exige un changement de végétation en fonction des différents types photosynthétiques, tandis que la datation en ${}^{14} \! C$  est liée, à l'introduction massive de ${}^{14} \! C$  suite aux explosions nucléaires ou au ${}^{14} \! C$ naturel.\\
+La différence entre ces 2 techniques est que la première peut être utilisée pour des temps de résidence allant d'une année à un  siècle alors que la deuxième peut être utilisée  pour des temps de résidence allant d'une  année à plusieurs millénaires.\\
+\paragraph{Abondance naturelle en ${}^{13} \!C$:}
+Le carbone a 2 isotopes stables: le ${}^{12} \! C$ et le ${}^{13}\! C$. Le premier se trouve en abondance naturelle de 98.93\% alors que le second est de 1.1\%.\\
+Ainsi, on définit le rapport isotopique comme le rapport entre le ${}^{13} \! C$ et le ${}^{12} \! C$.\\
+Pour cette technique, on définit le critère $\delta$ comme étant la différence relative des rapports isotopiques de l'échantillon à la référence qui est le PDB.\\
+\begin{equation*}
+\delta {}^{13} \! C (\permil \, vs \, PDB) = \left[ \frac{\frac{{}^{13} \! C}{{}^{12} \! C})_{\text{Échantillon}} -{\frac{{}^{13} \! C}{{}^{12} \! C}})_{PDB}}{{\frac{{}^{13} \! C}{{}^{12} \! C}} )_{PDB}} \right] \times 1000
+\end{equation*}
+Si $\delta >0$, il y a plus de carbone lourds dans l'échantillon que dans la référence.\\
+La quasi-totalité des plantes continentales des pays tempérées et froides emploient le cycle photosynthétique de type 3.\\
+La photosynthèse en C4 est découverte en 1996, cette adaptation est apparue chez nombreux groupes de plantes, principalement comme adaptation au stress hydrique ou à une réduction de disponibilité de $CO_2$ pendant la journée. Ces derniers sont essentiellement des plantes tropicales et certains granimés comme maïs et canne à sucre.\\
+Au niveau du fractionnement isotopique, les plantes en C4 sont plus riches en carbone ${}^{13} \! C$ que les plantes en C3.\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale= 0.5]{C4-C3.png}
+\caption{Différence du rapport isotopique $\delta {}^{13} \!C$ entre les plantes C3 et C4.}
+\end{center}
+\end{figure}
+\textbf{Quel est l'intérêt de changer d'un type de végétation à un autre?}.\\
+La composition isotopique de la matière organique du sol est très proche de celle de la végétation en équilibre, ainsi la monoculture des plantes C4 sur les sols entièrement occupés par une végétation en C3 ou l'inverse est un excellent marquage de la matière organique incorporée dans le sol.\\
+En effet si le sol était entièrement occupé par des arbres de type C3, son profil de carbone correspond à une dynamique verticale et la valeur de $\delta {}^{13} \! C$ est autour de 26 $\permil$. Suite à une monoculture de mais, et vu que les C4 sont plus riche en ${}^{13} \! C$, celle-ci conduit à un enrichissement isotopique en ${}^{13} \! C$ car la couche superficielle du sol possède à peu près le même fractionnement isotopique des plantes C4 à la surface, qui est autour de $-12 \permil$. Voir la figure ci-dessous:\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 8cm,width = 10cm]{profils-C13}
+\caption{Profils de carbone avant et après la monoculture de plante de type photosynthétique différent.}
+\end{center}
+\end{figure}
+\paragraph{Datation par le ${}^{14} \! C$:}
+Le carbone 14 est radioactif et son abondance naturelle est de l'ordre de $10^{-12}$, sa période de décroissance est de 5730 ans c-à-d qu'il perd la moitié de sa quantité tous les 5730 ans.\\
+La méthode suppose que la végétation est intégrée d'une proportion constante de ${}^{14} \! C$ naturelle avec le temps .\\
+En sciences du sol, il est bien difficile d'apprécier l'incidence des variations naturelles de production du ${}^{14} \! C$  mais il existe cette fois-ci une variation artificielle, à laquelle le sol ne s'échappe pas, il s'agit de l'introduction récente et massive de ${}^{14} \! C$ dans l'atmosphère suite aux explosions nucléaires depuis 1950.\\
+La figure ci-dessous nous permet de voir les écarts de concentration de ${}^{14} \! C$  par rapport au niveau naturel (représenté par la droite horizontale).\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[ height = 8cm, width = 10cm]{pic_C14.png}
+\caption{Augementation de la concentration du carbone dans l'atmosphère suite aux essais nucléaires.}
+\end{center}
+\end{figure}
+Les teneurs en ${}^{14} \! C$  de l'atmosphère ont doublé en 1962 par rapport au  niveau naturel suivi d'une diminution à la suite,  due à la dilution du $CO_2$ dans le réservoir océanique.\\
+Ainsi, comme les végétaux ont subi les mêmes variations de l'atmosphère, leurs résidus humifiés se trouvent contaminées par le ${}^{14} \! C$.
+La figure ci-dessous, nous permet de mieux comprendre la différence au niveau de la dynamique du carbone du sol avant et après le pic des bombes:
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 8cm , width = 10cm]{diffusion.png}
+\caption{Profils de carbone avant et après le pic de bombes. }
+\end{center}
+\end{figure}  
+Avant le pic des bombes, la proportion du carbone 14 est intégrée dans le sol avec une proportion constante, ainsi, après les essais nucléaires et l'introduction massive du carbone 14, on remarque que la proportion de carbone 14 intégrée dans la surface a augmenté.\\
+Une fois les essais nucléaires sont interdits, le processus de diffusion de la matière organique est responsable de la descente  de la bosse reliée au pic, et finalement, grâce aux racines et aux processus de la bioturbation, cette bosse devient de plus en plus arrondie.\\
+Ainsi le dernier profil peut être considéré comme le profil type de la dynamique du ${}^{14}\!C$ dans le sol.\\
+Pour conclure, le principe de la datation par  le ${}^{14} \! C$ est basé sur la loi de décroissance radioactive.
+\begin{equation*}
+\fbox{$
+\begin{array}{rcl}
+A=A_0*exp{(-\lambda t)}  \qquad   \lambda = \frac{\ln{2}}{T}
+\end{array}
+$}
+\end{equation*}
+avec
+\begin{itemize}
+\item $A_0$: l'activité spécifique initiale. On pourra la définir comme étant celle du carbone des organismes vivants.
+\item A: l'activité spécifique de l'échantillon à dater.
+\item T: la période de radioactivité fixée à 5730 ans.
+\end{itemize}
+Par conséquent  l'âge t de l'échantillon se déduit de la formule suivante.
+\begin{equation*}
+t = 8.035 \ln{\frac{A_0}{A}}
+\end{equation*}
+\section{Description de la base de données}
+A l'origine, les données de 200 sites ont été obtenues à partir de la littérature: elles décrivent des profils échantillonés, certains datent de plus de 80 ans. Cependant toutes ces données ne sont pas utilisables dans notre étude.\\
+Ces sites sont des fosses distribuées à peu prés partout sur le globe terrestre (voir la figure ci-dessous):
+
+\begin{figure}[H]
+<<echo = F, eval = T, comment = NA , warning = F, message = F,fig.width = 10, fig.height = 6, fig.align = 'center'>>=
+library(maps)
+library(mapdata)
+
+# carte de la répartition des sites sur le globe terrestre 
+NEW.data<- read.table("160602.csv",sep =";",header = T,dec =",") 
+length_site <-length(unique(NEW.data$nb_site))
+site_nb = unique(NEW.data$site_nb)
+map('worldHires')
+map.axes()
+
+for (i in site_nb){
+  site = unique(NEW.data[NEW.data$site_nb == i,c("longitude","latitude")])
+  points(site$longitude,site$latitude,pch =16 ,col ='blue')
+}
+@
+\caption{Répartition géographique des sites échantillonés.}
+\end{figure}
+Pour chaque fosse, le sol est stratifié en plusieurs horizons dont  on prélève simultanément un échantillon représentatif de chaque couche. Ainsi pour chaque profil, sont renseignés:
+\begin{itemize}
+\item la valeur du $\Delta {}^{14}\! C$ atmosphérique (en \permil  ) correspondant à l'année du prélèvement.
+\item les indications géographiques: latitude et longitude (en degré décimal), altitude (m).
+\item les informations climatiques: précipitations moyennes annuelles (mm), précipitations moyennes de janvier et juillet (mm), températures annuelles moyennes ($\degree C$), températures moyennes de janvier et juillet($\degree C$), indice d'aridité.\\
+Les données climatiques sont issues du CRU (Climatic Research Unit) et croisées avec les données locales lorsque celles-ci sont disponibles dans l'article original.
+\item les descriptions du sol: stock de carbone en surface (kg.$m^{-2}$), stock de carbone du niveau échantillonné le plus profond (kg.$m^{-2}$).
+\item le type de sol et la pofondeur maximale théorique (cm) (dire d'experts, J.Balesdent).
+\item le type d'écosystème associé au sol au moment de l'échantillonage.
+\end{itemize}
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 10cm ,height = 8cm]{site-variable}
+\caption{Description de la base de données.}
+\end{figure}
+En ce qui concerne les types de sols (convention WRB) les profils sélectionnés pour l’estimation
+rassemblent 16 types différents : \textit{andosol, arenosol, cambisol, chernozem, ferralsol, fluvisol, gleysol,
+kastanozem, leptosol, luvisol, nitisol, podzol et vertisol,phaeozem,acrisol,calcisol}.\\
+
+Les classes d’écosystème croisent deux caractéristiques physiques d’un site : la première fait référence au type d’écosystème rencontré à l’endroit du prélèvement (parmi : field, foret, grassland,savanna) et la seconde fait référence au type d’utilisation du sol (naturel vs cultivé).\\
+
+On dispose ensuite des mesures de $ \Delta {}^{14} \!C$ ainsi que des positions supérieures et inférieures de chacune des couches qui ont servi aux mesures (appelées "level.top" et "level.base"). Enfin, l'incertitude résultant de la mesure physique sur les valeurs de $\Delta {}^{14} \!C$ est parfois donnée.
+Voici la liste des noms des potentielles variables explicatives et leurs abréviations correspondantes (abréviations qui seront utilisées par la suite pour l'écriture des modèles):
+\begin{center}
+\begin{tabular}{|l|l|c|c|}
+\hline
+nom & abréviation & nom & abréviation\\
+\hline
+$\Delta{}^{14} \!C$ & D14Catm & précipitation moyenne de janvier & Pjan\\
+\hline
+latitude & Lat & précipitation moyenne de juillet &PJuil\\
+\hline
+longitude & Long & indice d'aridité & Arid\\
+\hline
+altitude & Alt & profondeur maximale & Prof.max\\
+\hline
+précipitation annuelle moyenne & Pann & stock de carbone en profondeur& Stock.prof\\
+\hline
+température annuelle moyenne & Tann & stock de carbone en surface &Stock.surf\\
+\hline
+température moyenne de janvier & Tjan &gradient du stock de carbone & Pte.stock\\
+\hline
+température moyenne de juillet &Tjuil &type de sol & Sol\\
+\hline
+type d'écosystème & Land & & \\
+\hline
+\end{tabular}
+\end{center}
+\paragraph{Traitement détaillé de la base de données}
+Dans l’optique d’une estimation efficace, il a fallu éliminer certains profils, soit parce qu’ils ne
+contenaient que très peu de mesures de $\Delta{}^{14}\!C$ (moins de 3 mesures), soit parce que le traitement
+mécanique des couches ne permettait pas de prendre en compte les valeurs de $\Delta{}^{14}\!C$ obtenues
+(altérations dues à l’utilisation d’acide par exemple), soit enfin à cause des sols qui étaient de type "paléosol"
+, ces derniers sont des sols anciens formés dans des conditions de climat et de végétation différentes de l'actuel et entérrés sous les dépôts épais plus récents, ils n'interviennent pas dans le cycle de carbone terrestre, raison pour laquelle on les élimine, on s'intéresse uniquement aux sols actifs. Enfin, après avoir défini une certaine couche du sol comme valeur de référence
+pour l’origine de l’axe des profondeurs, les mesures réalisées au dessus de l’horizon O (litière)
+deviennent inutiles pour notre étude qui vise à décrire l’évolution en profondeur : il a donc fallu
+éliminer ces mesures très proches de la surface.\\
+En résumé:
+\begin{itemize}
+\item éliminer les sites dont les valeurs de $\Delta{}^{14}\!C$ indiquées comme "modern".
+\item élimination des langues de gel (sites 86 et 87).
+\item élimination des triplicats (site 141-bulk).
+\item supression des sites "paléosol", le travail actuel ne concerne que les sols actifs.
+\item acceptation des supports suivants: bulk, bulk after HCL, after concentrated HCL.
+Certaines études sont réalisées sur des molécules spécifiques ou des fractions granulométriques,
+densimétriques. . . non représentatives de la totalité de la matière organique du sol.
+Nous ne conservons que les mesures réalisées sur un support proche de la matière organique totale ("bulk").
+\item élimination des sites qui n'ont pas de données pour le $\Delta{}^{14}\!C$(sites 144,145,149,150,186,187,188).
+\item élimination des sites de moins de trois mesures (sites 18, 72, 86, 144, 145, 149, 150, 162, 171, 178, 186, 187, 188, 198, 213, 218, 219, 234, 236, 239, 240, 242, 245, 246, 248, 249, 250, 251, 252, 253, 254, 255, 265, 287, 288, 289, 319, 340).
+\end{itemize}
+
+Parce que l'échantillonage de terrain n'est pas représentatif de l'extention réelle des sols et que la profondeur maximale des sols se révèle être un paramètre important, il faut réaliser l'analyse statistique sur un sous échantillon de la base de données, représentatif des sols rééls.\\
+Ainsi on considère tous les profils de plus de 100cm: ces profils correspondant aux points à droite de la ligne horizontale rouge en pointillées sur la figure suivante:
+\begin{figure}[H]
+<<eval = T , echo = F, comment = NA ,message = F,warning = F, fig.width = 6, fig.height= 4, fig.align = 'center'>>=
+library(MASS)
+library(operators) 
+library(ggplot2)
+#----------------------
+#       Data
+#-----------------------
+Data<- read.csv("160602-extraction-selected.csv",sep =""
+,header = T,dec = ",",na.string="") 
+
+Data$level_top <- as.numeric(as.character(Data$level_top))
+Data$level_base <- as.numeric(as.character(Data$level_base))
+Data$D14C<- as.numeric(as.character(Data$D14C))
+Data$D14Catm <- as.numeric(as.character(Data$D14Catm))
+Data$level_stock_kgm.2<-as.numeric(as.character(Data$level_stock_kgm.2))
+Data$Tann <- as.numeric(as.character(Data$Tann))
+Data$Tjan <- as.numeric(as.character(Data$Tjan))
+Data$TJul <- as.numeric(as.character(Data$TJul))
+Data$Pann <- as.numeric(as.character(Data$Pann))
+Data$Pjan <- as.numeric(as.character(Data$Pjan))
+Data$PJul <- as.numeric(as.character(Data$PJul))
+Data$aridity <- as.numeric(as.character(Data$aridity))
+
+# tracer pour chaque type de sol la profondeur maximale des sites qui lui appartiennent
+level_base_par_site <- unstack(Data, form= Data$level_base~Data$site_nb)
+WRB_par_site <- unstack(Data, form= Data$WRB~Data$site_nb)
+WRB_par_site <- lapply(WRB_par_site, function(x) unique(x))
+max_depth_par_site <- lapply(level_base_par_site, function(x) x[which.max(x)])
+max_depth <- as.numeric(max_depth_par_site)
+WRB<- as.character(WRB_par_site)
+
+D <- data.frame(site = unique(Data$site_nb),WRB = WRB ,max_depth = max_depth)
+f <- ggplot(data=D, aes(x= WRB, y= max_depth,colour = WRB))+ geom_point()+coord_flip()+ theme_bw()+
+  geom_hline(yintercept = 100,linetype ="dotted",color = "black", size=0.75)
+f
+@
+\caption{Profondeur maximale des profils en fonction de types de sols (en abcisse), La courbe rouge en pointillé délimite les profils qui vont être sélectionnés pour l'éstimation finale ( ce sont ceux dont la mesure la plus profonde se situe suite à droite  de la courbe rouge. Il en résulte une séléction de 159 profils.}
+\end{figure}
+
+Toutefois, ce seuil ne satatisfait pas les caractéristiques des sols "courts". Aussi pour ceux-là, nous prenons les seuils suivants (dire d'experts, J.BALESDENT):
+\begin{enumerate}
+\item Les leptosols- tous les sols.
+\item Les podzols > 50cm.
+\item les luvisols, gleysol, cambisol, andosol > 50cm.
+\item le Kastenozem > 50cm.
+\end{enumerate}
+On séléctionne ainsi 159 profils, voir annexe \ref{appendix1}.
+
+\paragraph{Gestion des variables qualitatives}
+La base de données regroupe 159 profils répartis en 15 types de sols différents et 12 combinaisons possibles pour la définition de l'écosystème (végetation + usage des terres). Certains types de sol sont sous-représentés et peuvent parfois être regroupés. Par ailleurs des associations entre type de végétation et usage de sol ne sont pas possibles (ex. "field" et "natural"). Pour les profils restants après nettoyage de données, le nombre de profils par type est résumé dans les tableaux suivants:\\
+
+\begin{figure}[!h]
+<<eval = T, echo = F, comment = NA, warning = F, message = F,fig.height = 4, fig.align = 'center'>>=
+hh = unstack(NEW.data, form=NEW.data$site_nb ~ NEW.data$WRB)
+nb_profil.par.WRB = sapply(hh,function(x){length(unique(unlist(x)))})
+df <- data.frame(WRB =levels(NEW.data$WRB),nb_site =nb_profil.par.WRB )
+library(ggplot2)
+bp<- ggplot(df, aes(x= WRB, y= nb_site, fill=WRB))+
+  geom_bar(stat = "identity")+coord_flip()+ theme_bw()
+bp
+@
+\caption{Répartition du nbr de sites par type de sol.}
+\end{figure}
+
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{2cm}|C{1.5cm}|C{1cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{2cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{3cm}|}
+\hline 
+& fluvisol &  gleysol & kastanozem &  leptosol & luvisol & andosol & arenosol \\
+\hline
+\textcolor{brown}{nb de profils} &1 & 4 & 1 & 3 & 31 & 12 & 4\\
+\hline
+\hline
+&cambisol & chernozem & ferrasol& phaeozem & calcisol & NA\\
+\hline 
+\hline
+ \textcolor{brown}{nb de profils}& 15 & 13 & 2 & 0 & 3 & 8\\
+\hline 
+\end{tabular}
+\captionof{table}{Nombre de profils par type de sol, pour les 159 utilisés. Certaines catégories contiennent d'autres types de sols que celui indiqué en titre: "luvisol" contient les types "planosol" et "phaaeozem", et "ferrasol" contient le type "plinthosol".}
+\end{center}
+
+
+\begin{figure}[H]
+<<eval = T, echo = F, comment = NA, warning = F, meassage = F, fig.height = 4>>=
+dd = unstack(NEW.data, form= NEW.data$site_nb~NEW.data$landuse)
+nb_profil.par.landuse = sapply(dd,function(x){length(unique(unlist(x)))})
+
+dff <- data.frame(type_ecosy =levels(NEW.data$landuse),nb_site =nb_profil.par.landuse )
+bpp<- ggplot(dff, aes(x= type_ecosy, y= nb_site, fill= type_ecosy))+
+  geom_bar(stat = "identity")+coord_flip()+ theme_bw()
+bpp
+@
+\caption{Répartition du nbr de sites par type d'écosystéme.}
+\end{figure}
+
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|}
+\hline 
+& grassland-cultivated & natural & savanna-natural &  fallow-cultivated & field-cultivated \\
+\hline
+\textcolor{brown}{nb de profils} & 14& 2 & 3&1 & 17 \\
+\hline
+\hline
+& forest & forest-cultivated & forest-natural & grassland-cultivated & NA\\
+\hline 
+\hline
+ \textcolor{brown}{nb de profils}& 7 & 14 & 39 &14& 28 \\
+\hline 
+\end{tabular}
+\captionof{table}{Nombre de profils par type d'écosystème, pour les 159 utilisés. NA représente les profils pour lesquels ni le type de végétation ni l'usage des terres ne sont renseignés.}
+
+\section{Modélisation statistique des profils $\Delta
+{}^{14} \!C$}
+Afin de choisir un modèle qui décrit la dynamique de $\Delta {}^{14}\!C$ en fonction de la profondeur et en tenant en compte de tous les facteurs environementaux, on peut tracer les profils de carbone des différents sites, voir la figure suivante:
+
+\begin{figure}[H]
+<<plot, fig.width = 7, fig.height = 3, fig.align = 'center', eval = T, echo = F , background = "white", comment = NA, warning = F>>=
+
+# Spaghetti-plot: Visualiser les allures de profils de D14C
+
+
+data.plot <- Data[,c("site_nb","level_base","D14C")]
+data.plot <- na.omit(data.plot)
+
+p <- ggplot(data = data.plot, aes(x = level_base, y = D14C
+,colour= factor(site_nb) ,group = factor(site_nb)))
+p+geom_line()+scale_x_discrete(name ="Profondeur (cm)")+
+theme_bw()+theme(legend.position='none')
+@
+\caption{Profils de carbone pour tous les sites étudiés.}
+\end{figure}
+On peut bien remarquer que la variabilité inter et intra site ainsi que les mesures réalisées sont différentes d'un site à un autre. Vu la non homogénité de la variance entre les différents sites, on ne peut pas appliquer Anova afin de détécter l'influence de certains variables explicatives sur la dynamique de $\Delta {}^{14} \!C$.\\
+
+Le premier travail consistait à reprendre le modèle proposé dans l'article de Jordane Mathieu et al. \cite{Mathieu}.\\
+Dans cet article, le modèle choisi est le suivant:
+soit S le nombre total de sites. Pour un site s$ \in[1,S]$, et pour une mesure m$\in[1,M_s]$ du site s, on modélise $\Delta {}^{14} C$ du sol en fonction de la profondeur:
+\begin{equation*}
+\Delta {}^{14} C_m = \phi_{1,s}+\phi_{2,s} \exp{-(\frac{x_m}{\phi_{3,s}})}^{\phi_{4,s}}+\sigma_s (x_m)\epsilon_m
+\end{equation*}
+avec $\epsilon_m\sim N(0,1)$
+\begin{itemize}
+\item $\phi_1$:$\Delta {}^{14} \! C$ en grande profondeur.
+\item $\phi_{1}+\phi_2$:$\Delta {}^{14} \! C$ en surface.
+\item $\phi_3$: lien avec la bosse à mi-hauteur.
+\item $\phi_4$: décroissance plus ou moins forte.
+\end{itemize}
+
+\begin{center}
+\begin{figure}[H]
+\includegraphics[width = 8cm ,height = 6cm]{Model-stat.png}
+\end{figure}
+\caption{Représentation graphique du modèle choisi.}
+\end{center}
+Ce modèle est suffisament général pour intégrer diverses formes de courbes.\\
+
+Du point de vu physique, la dynamique du carbone dans le sol peut être résumée en 3 processus mécaniques:
+\begin{enumerate}
+\item La diffusion: par définition c'est un phénomène de transport irréversible qui se traduit par la migration de la matière organique dans un milieu. Sous l'effet de l'agitation thermique, on observe un déplacement des constituants des zones de forte concentration vers celles de faible concentration.
+\item L' advection: par définition se réfère surtout au transport vertical de la matière organique, dont le transport est dû au ruisselement d'eau.
+\item La bioturbation: par définition désigne le phénomène de transfert de la matière organique par des êtres vivants au sein du sol. 
+\end{enumerate}
+Pour des raisons de difficulté de mesure, on ne profite pas de ces informations. D'où l'idée genérale de considérer le modèle le plus adapté aux courbes de $\Delta {}^{14} \!C$ en exprimant $\phi_1,\phi_2,\phi_3$ et $\phi_4$(variables latentes) en fonction des variables explicatives.\\
+En appliquant ce modèle, on décrit d'une façon indirecte les processus mécaniques mentionnés ci-desssus. Mais comment?
+En effet la diffusion dépend du type de sol et de type d'écosystème, la bioturbation dépend de la température alors que  l'advection dépend des précipitations et de l'indice d'aridité.\\
+\section{Approches statistiques}
+\subsection{Régression non-linéaire pour estimer les variables latentes-caractéristique de forme- $\phi_1, \phi_2,\phi_3,\phi_4$}
+Les variables latentes sont estimées via la fonction "optim" de R. Optim cherche à minimiser pour chaque site (s) et pour les différentes mesure m $\in[1,M_s]$, la fonction f(s):
+\begin{equation}
+f(s) = \sum_{i=1}^{m} (\Delta {}^{14} \!C[s,m] - (\phi_{1,s}+\phi_{2,s} \exp{-(\frac{x_m}{\phi_{3,s}})}^{\phi_{4,s}})^2) 
+\end{equation} .
+Voici le choix des valeurs initiales pour l’algorithme:
+\begin{enumerate}
+\item $\phi_{1,0}$: La valeur de $\Delta {}^{14} \!C$ la plus profonde dont on dispose pour le site considéré.
+\item $\phi_{2,0}$ : La différence entre la valeur de $\Delta {}^{14} \!C$ en surface et celle en profondeur.
+\item $\phi_{3,0}$: on utilise le lien entre $\phi_3$ et la largeur de la demi-bosse à mi-hauteur: le maximum de la fonction est atteint en x = 0 et vaut $\phi_1 + \phi_2$ donc à mi-hauteur de la bosse, toujours en x = 0, il vaut $\phi_1+\frac{\phi_2}{2} $. Ainsi la distance à mi-hauteur est égale à l’abscisse positive $x_h$ qui assure la condition 
+$\phi_1 + \phi_2 = \phi_1 + \phi_2 exp(-  \frac{x_h}{\phi_3} )$.
+Cette abscisse vaut $x_h =\phi_3 ln(2)^{\frac{1}{\phi_4}}$ . Il suffit alors de connaître approximativement $x_h$ à
+partir des données pour pouvoir exprimer $\phi_{3,0}$ par :
+$\phi_{3,0} = x_{h} ln(2)^{\frac{-1}{\phi_{4,0}}}$.
+\item $\phi_4$ semble prendre ses valeurs entre 1 et 3.
+\end{enumerate}
+Le code R et le tableaux de valeurs estimées sont donnés en annexe \ref{appendix2}.\\
+Le graphique suivant illustre la distribution des valeurs des variables latentes via optim:
+\begin{figure}[H]
+<<eval = T, echo =F, comment = NA,warning = F,message = F, fig.height = 5, fig.width = 8>>=
+load(file = "PHI_optim.Rdata")
+par(mfrow = c(2,4),mar = c(4,4,4,4))
+plot(PHI_optim[,1],PHI_optim[,2],type = "p", ylab = expression(phi[1]), xlab = "sites", main = expression(paste("Estimation de ",phi[1],sep = "")), col = "blue")
+#phi2
+plot(PHI_optim[,1],PHI_optim[,3],type = "p",col= "blue", ylab = expression(phi[2]), xlab = "sites", main = expression(paste("Estimation de ",phi[2],sep = "")))
+#phi3
+plot(PHI_optim[,1],PHI_optim[,4],type = "p",col= "blue", ylab = expression(phi[3]), xlab = "sites", main = expression(paste("Estimation de ",phi[4],sep = "")))
+#phi4
+plot(PHI_optim[,1],PHI_optim[,5],type = "p",col= "blue", ylab = expression(phi[4]), xlab = "sites", main = expression(paste("Estimation de ",phi[5],sep = "")))
+
+# histogramme
+
+hist(PHI_optim[,2], prob = T , col = "blue", xlab = expression(phi[1]), main = expression(paste("Histogramme ",phi[1], sep = "")))
+hist(PHI_optim[,3], prob = T ,xlab = expression(phi[2]),col= "blue",main = expression(paste("Histogramme ",phi[2], sep = "")))
+hist(PHI_optim[,4], prob = T, xlab = expression(phi[3]),col= "blue",main = expression(paste("Histogramme ",phi[3], sep = "")))
+hist(PHI_optim[,5], prob = T, xlab = expression(phi[4]),col= "blue",main = expression(paste("Histogramme ",phi[4], sep = "")))
+@
+\caption{Valeurs et histogarammes des variables- ou caractéristiques de forme - estimées via "optim" $\phi_1, \phi_2, \phi_3$ et $\phi_4$ pour l'enssemble des 159 sites de l'étude.}
+\end{figure}
+\section{ Variabilité intra-site}
+Le mod\`{e}le non lin\'{e}aire normal \`{a} variance
+h\'{e}t\'{e}rog\`{e}ne d'occurrence locale des mesures s'écrit de la façon suivante:
+
+Pour un site $s\in\lbrack1:S]$, et pour une mesure $m_{s}\in\lbrack1:n_{s}]$,
+on mod\'{e}lise l'\'{e}volution de $y=\Delta14C$ du sol en fonction de la
+profondeur $x(m_{s})$ par :%
+\begin{align}
+y(m_{s})  &  =\varphi_{1}(s)+\varphi_{2}(s)\exp-\left(  \frac{x(m_{s}%
+)}{\varphi_{3}(s)}\right)  ^{\varphi_{4}(s)}+\sigma(m_{s})\times
+\varepsilon(m_{s})\label{eq:local}\\
+\varepsilon(m_{s})  &  \sim N(0,1)\nonumber
+\end{align}
+
+
+On voit que ce modèle possède la même structure pour chaque site, 
+mais il est non lin\'{e}aire car la r\'{e}ponse $y$ est une fonction non
+lin\'{e}aire des coefficients $\varphi_{1},\varphi_{2},\varphi_{3},\varphi
+_{4}.$ C'est normal puisque le bruit de mesure $\varepsilon$ est suppos\'{e}
+normal. Dans un premier temps on posera une variance homogène $\sigma(m_{s})=\sigma$  .
+Pour des raisons de positivit\'{e}, j'utilise par la suite des 
+variables caract\'{e}ristiques transform\'{e}es:%
+\begin{align*}
+\theta_{1}(s)  &  =\varphi_{1}(s)\\
+\theta_{2}(s)  &  =\varphi_{2}(s)\\
+\theta_{3}(s)  &  =\log\varphi_{3}(s)\\
+\theta_{4}(s)  &  =\log\varphi_{4}(s)
+\end{align*}
+
+
+Dans le langage des physiciens, ces grandeurs caract\'{e}ristiques $\theta
+_{1},\theta_{2},\theta_{3},\theta_{4}$ s'appellent improprement des param\`{e}tres. En fait ce sont des variables latentes, elles sont tirées dans une même loi de probabilité, ici une loi normale de dimension $4$, dont la variance régit la variabilité entre sites.
+\subsection{Variabilit\'{e} intersite}
+$\theta_{1},\theta_{2},\theta
+_{3},\theta_{4}$ sont des variables
+interm\'{e}diaires imagin\'{e}es par le mod\'{e}lisateur qui r\`{e}glent le
+lien entre des variables explicatives et des r\'{e}plications (faites sur
+divers sites) d'un m\^{e}me type de mesures. On cr\'{e}e donc un mod\`{e}le de
+covariation des $4$ caract\'{e}ristiques $\theta(s)=(\theta_{1}(s),\theta
+_{2}(s),\theta_{3}(s),\theta_{4}(s))$ du comportement vis \`{a} vis du
+$\Delta14C$ d'un site $s$ . Il faut d'abord r\'{e}ajuster chaque
+caract\'{e}ristique de telle sorte que chaque site puisse \^{e}tre
+consid\'{e}r\'{e} comme une r\'{e}plication al\'{e}atoire d'un de ses voisins:
+pour cel\`{a}, on effectue ici la soustraction d'une fonction lin\'{e}aire
+(r\'{e}gression) de $P$ proxis enregistr\'{e}s pour le site, variables
+explicatives quantitative et qualitatives encod\'{e}s dans $F,$ matrice de $S$
+lignes et $P$ colonnes. Ce mod\`{e}le s'\'{e}crit de la fa\c{c}on suivante:
+
+Pour chaque caract\'{e}ristique $j\in\lbrack1:4],$ on suppose une r\'{e}ponse
+de type normale multivariée
+\begin{equation}
+\theta_{j}(s)-\text{ }\sum_{p=1}^{P}F(s,p)\beta(p,j)=E_{j}(s)
+\label{eq:regional}%
+\end{equation}
+
+
+On peut bien s\^{u}r mettre le coefficient $\beta(p,j)$ à 0 si la
+$j^{\grave{e}me}$caract\'{e}ristique n'a aucune raison \emph{a priori} de
+d\'{e}pendre du $p^{\grave{e}me}$ proxi.
+L'effet al\'{e}atoire $E(s)=\left(
+\begin{array}
+[c]{c}%
+E_{1}(s)\\
+E_{2}(s)\\
+E_{3}(s)\\
+E_{4}(s)
+\end{array}
+\right)  $ manifeste la partie explicative non prise en compte par les proxis.
+Il s'agit d'une variabilit\'{e} provenant de la plus ou moins grande ressemblance entre les
+tirages, r\'{e}gl\'{e}e par la variance de la loi des $E.$ Pour rester dans le domaine normal, on suppose que ces
+effets sont tir\'{e}s selon une loi multinormale de matrice $4\times4 $ de variance
+covariance $\Omega$.
+\[
+E(s)\sim N_{4}(0,\Omega)
+\]
+Du point de vue du langage de la statistique, seuls
+$\sigma$, $\Omega$ et $\beta$ sont les param\`{e}tres du
+mod\`{e}le form\'{e} par les \'{e}quations \ref{eq:regional}+\ref{eq:local}.
+\section{Lecture et Nettoyage des données}
+On a les informations collectées pour 159 sites (voir annexe \ref{appendix1}). Pour l'estimation on enlève les sites suivants: 190 ($\phi_4$ estimé est négatif), 146, 147, 148 et 238.
+Ainsi les lignes de tableaux correspondent aux valeurs manquantes du 
+$\Delta {}^{14} \!C$ et des principales variables explicatives. En plus, je supprime tous les sites ayant comme type de sol "UNKNOWN" ou comme type d'écosystème NA. Après seléction, il nous reste 104 sites, les sites éliminés sont représentés en annexe.\\
+\paragraph{Préparatition des grandeurs explicatives}
+En résumé, les 8 variables explicatives quantitatives prises en compte dans notre modèle sont:\\
+la valeur atmosphérique de l'année de prélévement, la latitude, l'indice d'aridité, le stock de carbone en surface et en profondeur, la température et la précipitation annuelle moyenne du site , ainsi que la difference en valeur absolue de la température entre janvier et juillet.\\
+Il nous reste 2 variables catégorielles: le type de sol et le type d'écosytéme. Vu le nombre de profils par type de sol et par type d'écosystéme, on a regroupé les 3 types de sol suivant "fluvisol(1 profil)", "kastanozem (1 profil)", "phaeozem(2 profils)" en un seul groupe. De même pour les 2 types d'écosystéme "natural-desert(1 profil)" et "natural(2 profils)" qui sont également regroupés en un seul groupe. Par contre, le type de sol "leptosol" n'est pas représenté dans cette étude. On a 3 profils de $\Delta {}^{14} \! C$ pour le type "leptosol" et ils sont considérés comme courts vu la profondeur maximale mesurée. Le code R est en annexe \ref{appendix3}
+\section{Inférence bayésienne sous Jags}
+Afin d'éstimer nos variables latentes on considère le modèle bayésien hiérarchique suivant, en tenant compte des incertitudes intra et inter site: 
+\begin{enumerate}
+\item Modèle :
+\begin{equation}
+y_{[s,z]} \sim N( f(\phi_s,s,z),\sigma^2) ; \ s \in  [1,S] \ et \ z \in [1,m_s]
+\label{modèle}
+\end{equation}
+avec $y_{[s,z]}$: mesure $\Delta {}^{14} \! C$ pour le site s au profondeur z, $f(\phi_s,s,z)$ le modèle ajusté au site s à la profondeur z. On suppose que l'erreur de mesure $\sigma^2$ est homogène pour tous les sites.
+\item Variables latentes: on a pour chaque site:\\
+\begin{equation}
+\phi_s \sim MN (X[s,]* \Theta_{[26,4]},\Omega)
+\label{variable-latente}
+\end{equation}
+\item Prior:\\
+$\tilde{\sigma^2} \sim Gamma(a,b)$\\
+$ i \in [1,26]$ et $j \in [1,4] \Theta[i,j] \sim N(\mu,\tau^2)$\\
+$ \Omega \sim Wishart(v,R_{[4,4]})$
+\end{enumerate}
+Voici le graphe DAG, ainsi que le modèle utilisé sous Jags ( sauvegardé sous fichier.txt): notez que la commande dflat() n'existe pas sous Jags, elle peut être substituée par une loi normale en supposant une variance de valeur importante.\\
+\begin{center}
+\begin{figure}[H]
+\includegraphics[height = 7cm , width = 10cm]{DAG.png}
+\caption{Les quantités aléatoires sont entourées par des ellipses et les quantités fixes ou observées sont entourées par des rectangles.}
+\end{figure}
+\end{center}
+Le modèle utilisé sous Jags
+<<eval = F, echo = T, comment = NA,warning = F, message = F, background = "white">>=
+############################################
+model{
+
+# varibles latentes
+
+for (i in 1:N){
+phi[i,1:4] ~ dmnorm(mu[i,],Prec[,])
+mu[i,1] <- inprod(X[i,1:p] ,theta[1:p,1])
+mu[i,2] <- inprod(X[i,1:p] ,theta[1:p,2])
+mu[i,3] <- inprod(X[i,1:p] ,theta[1:p,3])
+mu[i,4] <- inprod(X[i,1:p] ,theta[1:p,4])
+}
+
+# Vraissemblance
+
+for (i in 1:N){
+  for (j in 1:size_par_site[i]){
+  y[i,j] ~ dnorm(m[i,j],tau)
+  m[i,j] <- phi[i,1]+phi[i,2]*exp(-pow((z[i,j]/exp(phi[i,3])),exp(phi[i,4])))
+  }
+}
+
+# Prior 
+
+for (j in 1:4){
+  for (i in 1:p){
+  theta[i,j] ~ dnorm(0,0.0001)  #loi impropre
+}}
+
+Prec[1:4,1:4] ~ dwish(R[,],v)
+
+tau ~ dgamma(a,b)
+}
+#############################################
+@
+
+Pour faire tourner le modèle sous Jags on a besoin d'attribuer des valeurs initiales pour: $\Theta, \Omega$ et $\sigma^2$. Afin d'accélerer la convergence, il est préférable de donner des valeurs initiales qui sont vraissemblables, ainsi on a réalisé une analyse de variance multivariée (Manova) pour initialiser la matrice $\Theta_{[p,4]}$ où p est le nombre de variables explicatives avec des valeurs intéressantes. Comme variable à expliquer, on a utilisé la matrice $\Phi$ (ncol = p et nrow = 104) où la ligne i de cette matrice correspond aux caractéristiques du modèle d'ajustement du site i (obtenu par optim).
+\section{Tourner le modèle sur des données simulées}
+Une fois $\Theta$ et $\Omega$ sont initialisés, on peut simuler les variables latentes ($\phi_1,\phi_2,\phi_3$ et $\phi_4$) pour chaque site s en tirant dans une loi multinormale suivant l'équation \ref{variable-latente}.\\
+Une fois les caractéristiques de chacun de ces sites sont tirées, on peut simuler nos données de $\Delta {}^{14}\! C$ en tirant dans une loi normale suivant l'équation \ref{modèle}. Le code R est donné an annexe \ref{apprendix4}.\\
+Suite aux simulations, on peut avoir recours à Jags qui nous permet de calculer la loi \textit{a posteriori} des paramètres à estimer en utilisant les algorithmes de Metropolis Hastings. Le code R est donné en annexe \ref{appendix5}.
+\paragraph{Choix des priors:}
+Concernant les hyperparamètres de la loi gamma de la précision 
+$\tilde{\sigma^2}$, on a choisi une loi gamma non-informative avec a = 0.001 et b = 0.001 . Pour chaque élement de la matrice $\Theta$, on a suspposé une loi normale vague car à priori on a aucune information. Il reste les hyperparamètres de la loi de Wishart de la matrice de précision, on a supposé un dégré de liberté de 5 pour que la matrice de précision soit proche  du paramètre d'échelle (une matrice de taille 4*4). Le paramètre d'échelle est la matrice de précision obtenue par Manova.
+\subsection{Diagnostic de la convergance sur les données simulées}
+\paragraph{Mixing}
+Dans la théorie des chaînes de Markov, on s'attend à ce que nos 3 chaînes MCMC convergent en théorie vers la distribution stationnaire, qui est aussi notre distribution cible.
+Cependant, il n'y a aucune garantie pratique que notre chaîne converge après M itérations.
+Comment peut on savoir si notre chaîne a effectivement convergé?
+On ne peut jamais être sûr, mais il y a plusieurs tests que nous pouvons faire, à la fois visuels et statistiques, pour voir si la chaîne semble avoir convergé.\\
+Tous les diagnostics se trouvent dans le package coda de R. Mais avant il faut transformer nos 3 chaines en "objets MCMC".\\
+Une façon de voir si notre chaîne a convergé est de voir comment les 3 chaînes sont mélangées (mixing) ou comment elles se déplaçent autour de l'espace des paramètres. Si notre chaîne prend beaucoup de temps pour se déplacer dans l'espace des paramètres, il faudra plus de temps à converger. Un traceplot
+est une représentation graphique de la valeur du paramètre à chaque itération. Nous pouvons voir si notre chaîne est coincée dans certaines zones de l'espace des paramètres, ce qui indique un mauvais mélange. Voir la figure ci-dessous:
+\begin{center}
+\begin{figure}[H]
+\includegraphics[width = 15cm ,height = 12cm]{traceplot.png}
+\end{figure}
+\end{center}
+
+\paragraph{Autocorrélation}
+En plus on peut évaluer la convergence en terme des corrélations entre les tirages de notre chaîne de Markov.
+L'autocorrélation $\rho_k$: est la corrélation entre chaque tirage et celui correspondant à un décalage de K. Voir l'équation suivante:
+\begin{equation}
+\rho_k = \frac{\sum (x_i-\bar{x})(x_{i+k})}{\sum (x_i-\bar{x})^2}
+\end{equation}
+On s'attend à ce que l'autocorrélation $\rho_k$ soit plus petite lorsque K augmente. Si l'autocorrélation est encore relativement élevée, pour des valeurs plus élevées que k, on a un degré haut de corrélation et un mélange lent. Voir la figure suivante:
+\begin{center}
+\begin{figure}[H]
+\includegraphics[scale= 0.5]{autocorrelation.png}
+\end{figure}
+\end{center}
+\paragraph{Gelman et Rubin}
+Le test de Gelman et Rubin nous permet de calculer la variance intra (W) et inter (B) chaines MCMC, ainsi on définit la variance de la distribution stationnaire par:
+\begin{equation}
+\tilde{Var(\theta}) = (1-\frac{1}{n})W+\frac{1}{n}B 
+\end{equation}
+Et le potential scale reduction factor $\tilde{R}$ est défini par:
+\begin{equation}
+\tilde{R} = \sqrt{\frac{\tilde{Var(\theta)}}{n}}
+\end{equation}
+Si $\tilde{R}$ est élevé (supérieur à 1.1 ou 1.2), nous devrions exécuter nos chaînes plus longtemps pour améliorer la convergence. Dans mon cas tous les $\tilde{R}$ sont inférieurs à 1.2. Le code 
+R est donnée en annexe \ref{appendix6}.
+\subsection{Comparaison entre la matrice $\Theta_true$ et $\Theta_postérior$}
+Pour vérifier l'lalgorithme tourne bien, il faut que la valeur de la matrice $\Theta$ à postériori ne soit pas loin de la vraie matrice $\Theta$ à partir de laquelle on a simulé les données. Le code R et les graphes sont donnés en annexe \ref{appendix7}.
+\section{Application finale sur les données réelles de $\Delta {}^{14} \!C$}
+On profite des données réelles de 104 profils de $\Delta {}^{14} \! C$. 74 sites ont servi pour l'apprentissage et 30 pour la validation.
+Les bandeaux de prédictions qui illustrent les résulats sur l'enssemble d'apprentissage (74 sites) ainsi que l'enssemble de validation (30 sites) sont donnés en annexe \ref{appendix8} (en orange, résultant de notre connaissance uniquement partielle des paramètres) auxquels se superpose une incertitude sur la mesure des profils (ici supposée de variance homogène) représentée en grise.
+\section{Sélection du modèle dans le cadre bayésien}
+Un problème crucial dans la construction d'un modèle de régression multiple est la séléction des prédicteurs à intégrer dans le modèle. Plus précisement, étant donné une variable dépendante Y et un enssemble de prédicteurs potentiels, le probléme consiste à identifier le meilleur modèle de forme, par exemple dans notre cas:
+\begin{equation}
+\phi_1 =  X_1^*\beta_1^*+\cdots+ X_q^* \beta_q^*
+\end{equation}
+Où $X_1^*,\cdots,X_q^*$ est le sous enssemble séléctionné parmis
+$ X_1,\cdots,X_p$. Plusieurs critères de séléction basés sur la comparaison de tous les $2^p$ sous-modèles possibles sont considérés comme AIC, Cp et BIC.\\ 
+Maleureusement, si p est grand les exigences de calcul pour ces procédures peuvent être prohibitives.\\
+Dans cette partie, on introduit la procédure SSVS (Stochastic Search Variable Selection). SSVS consiste à intégrer la regression entière dans un modèle hiérarchique bayésien de mélange normal, où les variables latentes sont utilisées pour identifier le sous enssemble choisi. Ainsi le meilleur sous enssemble de prédicteurs est composé de ceux ayant une probabilité \textit{a posteriori} importante. Cette technique est basée sur l'échantillonnage de Gibbs afin de générer indirectement des réplicats de la loi multinomiale \textit{a posteriori} sur l'enssemble des choix possibles. Le sous enssemble de prédicteurs avec la plus élevée probabilité peut être identifié par son apparition fréquente dans l'échantillonneur de Gibbs.\\
+\paragraph{Un modèle hiérarchique de sélection de variables:}
+Pour un modèle de régression, on considère que la variable à expliquer Y suit la loi suivante:
+\begin{equation}
+Y | \beta,\sigma^2 \sim N(X \beta,\sigma^2 I)
+\end{equation}
+où Y est $n \times 1,X = [X_1,\cdots,X_p]$  est $n \times p,\beta = (\beta_1,\times,\beta_p)$ et $\sigma^2$ est un scalaire. $\beta$ et $\sigma^2$ sont considérés comme inconnus. Pour le modèle considéré, séléctionner un sous enssemble de prédicteurs est équivalent à affecter des zéros aux $\beta_i$ correspondants aux prédicteurs non sélectionnés.\\
+Ainsi, on considère le modèle précédent comme une partie d'un large modèle hiérarchique où on suppose que chaque composante de $\beta$ provient d'un modèle de mélange de 2 distributions normales de variances différentes en introduisant une variable latente $\gamma_i = 0$ ou 1, on représente le modèle de mélange normal par:
+\begin{equation}
+\beta_i | \gamma_i \sim (1-\gamma_i) N(0,\tau_l)+\gamma_i N(0,c_i^2\tau_i^2)
+\label{prior-beta}
+\end{equation}
+et 
+\begin{equation}
+P(\gamma_i = 1) = 1-P(\gamma_i = 0) = p_i
+\label{model-gamma}
+\end{equation}
+Lorsque $\gamma_i = 0$, $\beta_i \sim N(0,\tau_l)$, et lorsque $\gamma_i = 1, \beta_i \sim N(0,c_i^2\tau_i^2)$. L'interprétation de cette formule se fait de la manière suivante:\\
+Dans un premier temps on suppose que $\tau_l$ est très petite, ainsi si $\gamma_i = 0$, $\beta_i$ va être probablement très petit et peut être estimé par 0. Dans un second temps, on suppose que $c_i$ est assez large, ainsi si $\gamma_i = 1$, $\beta_i$ est loin d'être estimé par 0. $p_i$ décrit notre croyance \textit{ a priori} qui suppose que $\beta_i$ esst un estimateur non nul, ce qui est équivalent à dire que $X_i$ doit être inclus dans le modèle.\\
+Pour obtenir \eqref{prior-beta} comme un prior de $\beta_i|\gamma_i$ on suppose une loi multinormale \textit{a priori}
+\begin{equation}
+\beta | \gamma \sim N_p(0,D_{\gamma}R D_{\gamma})
+\end{equation}
+où $\gamma = (\gamma_1,\cdots,\gamma_p)$, R est la matrice de corrélation à priori et 
+\begin{equation}
+D_{\gamma} = diag[a_1\tau_1,\cdot,a_p\tau_p]
+\end{equation}
+avec $a_i= 1$ si $\gamma_i = 0$ et $a_i = c_i$ si $\gamma_i = 1$.
+Pour $\gamma$ on a supposé un modèle de Bernouilli avec une probabilité $p_i$ (la probabilité que $\beta_i$ soit non nul).\\
+Finalement on suppose une loi inverse gamma pour modéliser la précision $\tilde{\sigma^2}$:
+\begin{equation}
+\tilde{\sigma^2} \sim G(\frac{v}{2},\frac{v \lambda}{2})
+\end{equation}
+\paragraph{Identifier le meilleur modèle avec $f(\gamma | Y)$}
+L'intérêt principal de ce modèle hiérarchique bayésien est de chercher la loi marginale \textit{a posteriori} 
+\begin{equation}
+f(\gamma | Y) \propto f(Y|\gamma) f(\gamma)
+\end{equation}
+Un choix raisonnable est de considérer que l'inclusion du prédicteur $X_i$ est indépendant, de l'inclusion du prédicteur $X_j$, pour tout $i \neq j$ ainsi on peut écrire:
+\begin{equation}
+f(\gamma) = \prod p_i^{\gamma_i} (1-p_i)^{(1-\gamma_i)}
+\label{gamma}
+\end{equation}
+Un prior uniforme est un cas spécial de \eqref{gamma} où $f(\gamma) = \frac{1}{2^p}$, ainsi la probabilité d'inclusion est: $p_i = \frac{1}{2}$.  
+Le travail précédent était représenté dans l'article (George and McCulloch 1993) \cite{Edward}.\\
+Après cette vision globale de la technique de séléction de variable revenant à mon cas d'étude.\\
+On a choisi c = 1000 (assez large) et R = I. A noter que les variables à expliquer sont les variables latentes $\phi_1, \phi_2, \phi_3$ et $\phi_4$. Le modèle sous Jags est le suivant:
+<<eval = F, echo = T, comment = NA,warning = F,message = F, background = "white">>=
+model{
+  # typical regression priors
+  sd_y ~ dunif(0, 100)
+  tau_y <- pow(sd_y, -2)
+  Prec[1:4,1:4] ~ dwish(R[,],5)
+
+  # SSVS technique
+
+  # Prior variance beta
+
+  sd_bet ~ dunif(0, 100)
+  tau_in[1] <- pow(sd_bet, -2)  # coef effectively zero
+  tau_in[2] <- tau_in[1]/ 1000 # nonzero coef         
+ 
+  # prior probabilité d’inclusion
+  
+  p_ind[1] <- 1/2
+  p_ind[2] <- 1 - p_ind[1]
+
+  for (i in 1:ncov){
+    ind1[i] ~ dcat(p_ind[]) # returns 1 or 2
+    gamma1[i] <- ind1[pos[i]] - 1   # returns 0 or 1
+     
+     ind2[i] ~ dcat(p_ind[]) # returns 1 or 2
+    gamma2[i] <- ind2[pos[i]] - 1   # returns 0 or 1
+     
+
+    ind3[i] ~ dcat(p_ind[]) # returns 1 or 2
+    gamma3[i] <- ind3[pos[i]] - 1   # returns 0 or 1
+     
+
+
+   ind4[i] ~ dcat(p_ind[]) # returns 1 or 2
+    gamma4[i] <- ind4[pos[i]] - 1   # returns 0 or 1
+     
+    # Prior beta
+
+    beta[i,1] ~ dnorm(0, tau_in[ind1[i]])
+    beta[i,2] ~ dnorm(0, tau_in[ind2[i]])
+    beta[i,3] ~ dnorm(0, tau_in[ind3[i]])
+    beta[i,4] ~ dnorm(0, tau_in[ind4[i]])
+  }
+
+
+  # Latent variable
+
+ for (i in 1:N){
+  phi[i,1:4] ~ dmnorm(mu[i,],Prec[,])
+  mu[i,1] <- inprod(X[i,] ,beta[,1])
+  mu[i,2] <- inprod(X[i,] ,beta[,2])
+  mu[i,3] <- inprod(X[i,] ,beta[,3])
+  mu[i,4] <- inprod(X[i,] ,beta[,4])
+}
+
+  # likelihood
+  
+ for (i in 1:N){
+  for (j in 1:size_par_site[i]){
+  y[i,j] ~ dnorm(m[i,j],tau_y)
+  m[i,j] <- phi[i,1]+phi[i,2]*exp(-pow((z[i,j]/exp(phi[i,3])),exp(phi[i,4])))
+  }
+ }
+}
+@
+Les graphes ci-dessous nous permet de voir l'influence de chacune des variables explicatives (qualitatives et quantitatives) sur nos variables latentes, le code R est donné en annexe \ref{appendix9}:
+<<eval = T, echo = F,comment = NA, warning = F, messsage = F,background = "white">>=
+########################################
+# Résultats
+########################################
+
+load(file = "jagsfit-selection.Rdata")
+
+
+# Les valeurs des coeifficients a posteriori
+
+coeiff.posterior <-jagsfit_selection$BUGSoutput$mean$beta
+beta.posterior <- jagsfit_selection$BUGSoutput$sims.list$beta
+par(mfrow = c(2,2))
+for (i in 1:4){
+   u = beta.posterior[,,i]
+   hh <- data.frame(value =as.numeric(u),param = rep(1:26,each = jagsfit_selection$BUGSoutput$n.keep))
+   boxplot(value ~ as.factor(param), data = hh,main = paste("Phi_",i,sep = ""),ylab = "coefficient", xlab = "value")
+   points(1:26,coeiff.posterior [,i],col = "green")
+ }
+
+# les probabilités d'inclusion dans le modèle
+
+prob1.nonzero.posterior<-round(
+             jagsfit_selection$BUGSoutput$mean$gamma1,digits = 2)
+prob2.nonzero.posterior <-round(
+             jagsfit_selection$BUGSoutput$mean$gamma2, digits = 2)
+prob3.nonzero.posterior <- round(jagsfit_selection$BUGSoutput$mean$gamma3, digits = 2)
+prob4.nonzero.posterior <- round(jagsfit_selection$BUGSoutput$mean$gamma4, digits = 2)
+prob.nonzero.posterior <- data.frame(prob1.nonzero.posterior,prob2.nonzero.posterior,prob3.nonzero.posterior,prob4.nonzero.posterior)
+
+colnames(prob.nonzero.posterior)<- c("Phi_1","Phi_2","Phi_3","Phi_4")
+
+layout(matrix(c(1,2,3,4,5,5,5,5),4, 2))
+par(mar = c(2,2,1,2))
+for (i in 1:4){
+  plot(x = as.factor(1:26), y = prob.nonzero.posterior[,i] , ylim = c(0,1), main = paste("Phi_",i,sep = ""))
+  abline(h=0.5, col = "red", lty = 2)
+}
+plot.new()
+legend <- c( "1:Intercept","2:cultivated-forest","3:cultivated-grassland", "4:forest",              
+"5:natural","6:natural-forest","7:natural-grassland","8:natural-savanna",    
+"9:arenosol","10:cambisol","11:chernozem","12:ferralsol","13:fluvisol","14:gleysol","15:luvisol","16:nitisol",                 
+"17:podzol","18:vertisol","19:Atm","20:Temp","21:Pann","22:Lat","23:Arid","24:Stock_surf",               
+"25:Stock_prof","26:Dif_T")    
+legend(x="center",legend= legend,fill= c(1,rep(2,7),rep(3,10),4:11),bty = "n")
+@
+$\phi_1$ est interprétée comme étant la concentration de $\Delta {}^{14} \!C$ en profondeur, ainsi on peut dire que les facteurs qui influent le plus sur cette concentration sont: en premier lieu le type d'écosystéme (avec une probabilité de 0.75 d'être séléctionné dans le modèle), suivi de la latitude (0.65) et la différence de température entre les mois de janvier et juillet (0.68). Le type de sol contribue de $43\%$ à la compréhension de la dynamique du carbone en profondeur. Voir le tableau ci-dessous pour les autres covariables. 
+Pour $\phi_2$ qui représente la concentration de $\Delta {}^{14} \!C$ à la surface, c'est le type de sol qui impacte le plus cette concentration (avec une probabilité \textit{a posteriori} 0.72 d'être séléctionné dans le modèle), suivi par le taux de précipitation annuel (0.62), la latitude (0.58), la différence de température entre juillet et janvier (0.53), la concentration atmosphérique en $\Delta {}^{14} \!C$ (0.53) et finalement la température annuelle avec un eprobabilité de 0.51.\\
+Pour le reste voir le tableau ci-dessous.
+Pour les deux variables latentes restantes $\phi_3$ et $\phi_4$, aucun parmis les prédicteurs potontiels n'est significatif.
+\begin{figure}[H]
+<<eval = T, echo = F, background = "white", comment = NA>>=
+legend1<- c( "Intercept","cultivated-forest","cultivated-grassland", "forest",              
+"natural","natural-forest","natural-grassland","natural-savanna",    
+"arenosol","cambisol","chernozem","ferralsol","fluvisol","gleysol","15:luvisol","16:nitisol",                 
+"podzol","vertisol","Atm","Temp","Pann","Lat","Arid","Stock_surf",               
+"Stock_prof","Dif_T")
+ff <- cbind(Covariables=legend1,prob.nonzero.posterior)
+print(ff)
+@
+\caption{Probabilté de séléction \textit{a posteriori} dans le modèle pour chacune des variables latentes - caractéristiques du modèle.}
+\end{figure}
+
+
+
+\section{Perspectives}
+\begin{enumerate}
+\item Tester l'algorithme VBEM (Variationnal Bayes Expectation Maximization), et le comparer avec les méthodes MCMC.
+\item Considérer un modèle dont la variance varie avec l'épaisseur de la couche mesurée.
+\item Appliquer l'algorithme EM de Jordane sur la nouvelle base de données afin de le comparer avec l'approche bayésienne.
+\end{enumerate}
+\textcolor{red}{TO BE CONTINUED}
+
+\appendix
+\section{Les profils séléctionnés pour l'analyse statistque}
+\label{appendix1}
+
+<<eval = T, echo = F, comment = NA, warning = F , message = F,fig.height = 10, fig.width = 10,fig.height = 8,size = 'scriptsize'>>=
+par(mfrow = c(5,4),mar = c(4,4,4,4))
+for (i in 1:length(unique(Data$site_nb))){
+  S = Data[Data$site_nb == unique(Data$site_nb)[i] ,]
+  S$level_mean <- 0.5* (S$level_top+S$level_base)
+  type.sol = levels(Data$WRB)[unique(S$WRB)]
+  year = unique(S$sampling_year)
+  plot(S$level_mean,S$D14C,type = "b",xlab ="Profondeur",ylab ="D14C",
+       main = c(paste("site",unique(Data$site_nb)[i],sep =""),type.sol,year),
+       xlim =  c(0,max(S$level_mean,na.rm = T)))
+}
+
+@
+\section{Code R: Estimation via "optim"}
+\label{appendix2}
+<<echo = T,eval = T, comment = NA, message = F, warning = F, background = "white",size = 'scriptsize'>>=
+#---------------------------------
+#       Ajustement et estimation
+#---------------------------------
+
+# Modèle ajusté: premier travail c'est le modèle de Jordane
+
+model <- function(phi,z){
+  Y.ajus <- phi[1]+phi[2]*(exp(-(z/phi[3])^phi[4]))
+  return(Y.ajus)
+}
+
+# fonction de coût à minimiser pour optim: ---->
+#"somme des carrés des résidus "
+
+func1 <- function(par,y,x) {
+  sum((y-model(par,x))^2)
+}
+
+
+# Estimer phi1,phi2,phi3,phi4 en utilisant la fonction "optim"
+
+PHI.optim = NULL
+set.seed(123)
+
+for (k in unique(Data$site_nb)) {
+  v=which(Data$site_nb==k)
+  x.top=Data$level_top[v]
+  x.base=Data$level_base[v]
+  x = 0.5*(x.top+x.base)
+  y=Data$D14C[v]
+  x=x[!is.na(y)] #on enlève les lignes sans D14C :
+  y=y[!is.na(y)]
+
+  
+  palier=y[length(y)]
+  surf=y[1]
+  
+  # xh:abscisse de la distance à mi-hauteur
+  y.moy=(surf+palier)/2
+  indi=which.min(abs(y-y.moy))
+  xh=x[indi]
+
+  
+  a0=palier
+  b0=(surf-palier)
+  f0=2 
+  c0=xh*(log(2))^(-1/f0)
+  
+  est.o4 <- optim( c(a0, b0,c0,f0), func1,
+                   method="SANN", hessian=TRUE, y=y, x=x) 
+  PHI.optim <- rbind(PHI.optim,est.o4$par)
+  
+}
+
+PHI.optim <- cbind(unique(Data$site_nb),PHI.optim)
+colnames(PHI.optim) <- c("site","phi1","phi2","phi3","phi4")
+print(PHI.optim)
+@
+les profils ajustés par "optim" sont représentés en rouge:
+<<eval = T, echo = T, comment = NA, message = F,warning = F, background = "white",size = 'scriptsize'>>=
+#Tracer les profils ajustés
+
+par(mfrow = c(5,4),mar = c(2,2,2,2))
+
+for (i in 1:length(unique(Data$site_nb))){
+
+ S = Data[Data$site_nb == unique(Data$site_nb)[i]
+ ,c("site_nb","level_base","level_top","D14C","sampling_year")]
+ 
+ S = na.exclude(S)
+ x.top <- S$level_top
+ x.base <- S$level_base
+ x <- 0.5*(x.top+x.base)
+ y <- S$D14C
+  
+
+ phi.optim <- PHI.optim[i,-1]
+
+plot(x,y,type = "b",xlab ="Profondeur",ylab ="D14C",
+     main = c(paste("site",unique(Data$site_nb)[i],sep =""),
+     unique(S$sampl_year)),xlim =c(0,max(S$level_base,na.rm =T)))
+
+points(x,model(phi = phi.optim,x),col = "red",type ="l")
+}
+@
+
+
+\section{Code R: Nettoyage des données}
+\label{appendix3}
+<<eval = T, echo = T , comment = NA, message = F, warning = F, background = "white",size = 'scriptsize'>>=
+#-------------------------------------
+#    Préparation de la base de données  
+#------------------------------------
+
+
+# exclu le site 190 ayant la valeut de phi4 néhgatif
+# exclu les sites 146,147,148,238
+Data.selected = Data[Data$site_nb %!in% c(190,146,147,148,238),]
+
+# ici le type de sol inconnu est noté par UNKNOWN
+# trouver les indices dont le type de sol est UNKOWN afin de les supprimer
+
+site_UNKNOWN_WRB= Data.selected[Data.selected$WRB == "UNKNOWN"
+                                ,"site_nb"]
+Data.selected=Data.selected[Data.selected$site_nb%!in%
+                              unique(site_UNKNOWN_WRB),]
+
+#trouver les indices dont le type de landuse est NA afin de les #supprimer
+
+site_Na_landuse = Data.selected[Data.selected$landuse == "NA",
+                                "site_nb"]
+Data.selected=Data.selected[Data.selected$site_nb %!in%
+                              unique(site_Na_landuse),]
+
+# Supprimer les valeurs manquantes pour les varibles numériques
+Data.selected = na.exclude(Data.selected)
+
+## voir le nbr de profils par WRB
+hh=unstack(Data.selected,form=
+             Data.selected$site_nb~Data.selected$WRB)
+nb_profil.par.WRB=sapply(hh
+                  ,function(x){length(unique(unlist(x)))})
+
+
+## voir le nbr de profils par type de landuse
+dd = unstack(Data.selected,form=
+              Data.selected$site_nb~Data.selected$landuse)
+nb_profil.par.landuse = sapply(dd
+                  ,function(x){length(unique(unlist(x)))})
+
+#---------------------------------------------------------
+#Préparation des variables explicatives quantitatives
+#---------------------------------------------------------
+
+site_a_choisir = unique(Data.selected$site_nb) 
+ind <- which(PHI.optim[,1] %in% site_a_choisir)
+PHI.optim.selected <- PHI.optim[ind,]
+
+{
+  Atm=c()
+  Sol=c()  
+  Land=c()
+  Stock_surf=c()
+  Temp=c()
+  Lat=c()
+  Ann=c()
+  Samp=c()
+  Stock_prof=c()
+  Pann=c()
+  Arid=c()
+  Prof_max=c()
+  T_janv=c()
+  Longi=c()
+  Alti=c()
+  T_ju=c()
+  P_janv=c()
+  P_ju=c()
+  Dif_T=c()
+  
+  k1=1
+  for (k in PHI.optim.selected[,1]) {
+  t=which(Data.selected$site_nb==k)
+  x2=0.5*(Data.selected$level_base[t]+Data.selected$level_top[t])
+    
+    #indi=which(param_ok[,1]==k)
+    
+  sol=Data.selected$WRB[t[1]]
+  Sol=rbind(Sol,sol)
+    
+  land=Data.selected$landuse[t[1]]
+  Land=rbind(Land,land)
+    
+  Samp=rbind(Samp,Data.selected$sampling_year[t[1]])
+  Atm=rbind(Atm,Data.selected$D14Catm[t[1]])
+    
+  stock= Data.selected$level_stock[t]
+  stock=stock/(Data.selected$level_base[t]-Data.selected$level_top[t])
+  Stock_surf=rbind(Stock_surf,stock[1])
+  Stock_prof=rbind(Stock_prof,stock[length(stock)])
+    
+  Temp=rbind(Temp,Data.selected$Tann[t[1]]) 
+  Lat=rbind(Lat,Data.selected$latitude[t[1]])
+  Longi=rbind(Longi,Data.selected$longitude[t[1]])
+  Alti=rbind(Alti,Data.selected$altitude[t[1]])
+  Pann=rbind(Pann,Data.selected$Pann[t[1]]) 
+  Arid=rbind(Arid,Data.selected$aridity[t[1]])
+  Prof_max=rbind(Prof_max,x2[length(x2)])
+  T_janv=rbind(T_janv,Data.selected$Tjan[t[1]])
+  T_ju=rbind(T_ju,Data.selected$TJul[t[1]])
+  P_janv=rbind(P_janv,Data.selected$Pjan[t[1]])
+  P_ju=rbind(P_ju,Data.selected$PJul[t[1]])
+  Dif_T=rbind(Dif_T
+    ,abs(Data.selected$Tjan[t[1]]-Data.selected$TJul[t[1]]))
+    k1=k1+1
+  }
+
+}
+
+#---------------------------------------------------------
+#    Préparation des variables explicatives qantitatives
+#---------------------------------------------------------
+
+Fp.total <- NULL
+Fp.total=rbind(Fp.total,cbind(Atm,Temp,Pann,Lat,Arid,Stock_surf,Stock_prof,Dif_T))
+Fp.total=matrix(as.vector(Fp.total),ncol=length(Fp.total[1,]))
+colnames(Fp.total) <- c("Atm","Temp","Pann","Lat","Arid",
+                        "Stock_surf","Stock_prof","Dif_T")
+which(is.na(Fp.total)) # pas de valeurs manquantes
+
+# regrouper fluvisol,kastanozem, phaeozem en un seul groupe sous le nom #"fluvisol"
+indice_WRB = which(Sol[,1] %in% c(6,8,12))
+Sol = replace(as.vector(Sol),list = indice_WRB,values = 6)
+type_sol<-lapply(Sol,function(x)levels(Data$WRB)[x])
+type_sol <- as.factor(unlist(type_sol))
+# regrouper natural-desert et natural en une seule catégorie sous le nom "natural"
+indice_land <- which(Land[,1] %in% c(8,7))
+Land <- replace(as.vector(Land),list=indice_land,values = 7)
+type_landuse<-lapply(Land,function(x)levels(Data$landuse)[x])
+type_landuse<-as.factor(unlist(type_landuse))
+
+# Regrouper les variables quantitatives et qualitatives dans un seule data frame
+df <- data.frame(type_landuse,type_sol,Fp.total)
+p = ncol(df)
+S = nrow(df)
+# Appliquer model.matrix pour bien identifier entre les 2 types de variables
+model.mat <-model.matrix(~ type_landuse+type_sol+scale(Atm)
+      +scale(Temp)+scale(Pann)+scale(Lat)+scale(Arid)+
+      scale(Stock_surf)+scale(Stock_prof)+scale(Dif_T),
+      data = df )
+@
+Les 55 sites éliminés sont représentés ci-dessous:
+<<eval = T, echo = T,background = "white",size = 'scriptsize'>>=
+
+site.total = unique(Data$site_nb)
+site.learning = unique(Data.selected$site_nb)
+site.validation = site.total[site.total %!in% site.learning]
+
+
+par(mfrow = c(5,4),mar = c(2,2,3,2))
+for (i in site.validation){
+  SS = Data[Data$site_nb == i ,]
+  SS$level_mean <- 0.5* (SS$level_top+SS$level_base)
+  
+  type.sol = levels(Data$WRB)[unique(SS$WRB)]
+  type.ecosys = levels(Data$landuse)[unique(SS$landuse)]
+  year = unique(SS$sampling_year)
+  
+  plot(SS$level_mean,SS$D14C,type = "b",xlab ="Profondeur",
+  ylab ="D14C",main = c(paste("site",i,sep=""),type.sol,      
+   type.ecosys),xlim =  c(0,max(SS$level_mean,na.rm = T)))
+}
+@
+\section{Code R:Manova et données simulées}
+\label{apprendix4}
+<<echo = T, eval =T, background = "white",size = 'scriptsize'>>=
+#-------------
+#    Manova
+#--------------
+
+# La réponse: phi1(s),phi2(s),phi3(s),phi4(s)
+PHI <- PHI.optim.selected[,-1]
+
+#Pour des raisons de positivité
+PHI[,3] <- log(PHI[,3])
+PHI[,4] <- log(PHI[,4])
+
+Res1 <- manova(PHI~ model.mat-1)
+summary(Res1) # les va.explicatives sont significatives
+theta.hat <-Res1$coefficients
+#Res1$residuals
+Omega.hat <- var(Res1$resid)
+#cor(Res1$resid)
+
+#-----------------------
+#    Données simulées
+#-----------------------
+
+
+
+# la matrice des varibles latentes
+set.seed(123)
+phi.sim <- matrix(NA,nrow = S,ncol =ncol(PHI.optim.selected)-1)
+
+for (i in 1:S) {
+  mu = model.mat[i,] %*% theta.hat
+  phi.sim[i,] <- mvrnorm(1,mu,Omega.hat)
+}
+
+# les données de D14C simulées 
+set.seed(123)
+y.sim = list()
+z = list()
+for (i in 1:S){
+  SS = Data.selected[Data.selected$site_nb == unique(Data.selected$site_nb)[i],]
+  SS = na.exclude(SS)
+  x <- 0.5*(SS$level_top +SS$level_base)
+  y <- SS$D14C
+  
+  z[[i]] = zz = x
+  n = length(x)
+  phi <- phi.sim[i,]
+  #phi[2] <- exp(phi[2])
+  phi[3] <- exp(phi[3])
+  phi[4] <- exp(phi[4])
+  y.sim[[i]] = rnorm(n,model(phi,zz),sqrt(100))
+}
+
+# Visualisation des données simulés
+
+par(mfrow =c(5,4),mar = c(2,2,2,2))
+for (i in 1:104) { 
+  SS = Data.selected[Data.selected$site_nb == unique(Data.selected$site_nb)[i],]
+  SS = na.exclude(SS)
+  x <- 0.5*(SS$level_top+SS$level_base)
+  y <- SS$D14C
+
+  plot(x,y,type ="b",xlab ="Profondeur",ylab ="D14C",
+  main = c(paste("site" ,unique(Data$site_nb)[i] ,sep ="")),
+  xlim = c(0,max(SS$level_base,na.rm = T)))
+  
+  phi.optim <- PHI.optim.selected[i,-1]
+  y.simul <- y.sim [[i]]
+  
+  points(x,model(phi = phi.optim,x),col = "red",type ="l")
+  lines(x,y.simul,col ="blue")
+}
+@
+<<eval = T, echo = T, background = "white",size = 'scriptsize'>>=
+# Remarque JAGS ne sait pas traiter les listes
+
+# le nb de mesures par site
+size_par_site= sapply(y.sim,function(x){length(unlist(x))})
+
+# le nbr maximale de mesure pour un site
+max.length <- max(unlist(size_par_site))
+
+## Pour D14C
+## Ajouter Na pour compléter les élements de la liste 
+y <- lapply(y.sim,function(v) {c(v,rep(NA, max.length-length(v)))})
+## Rbind
+y <-do.call(rbind, y)
+
+# Pour la profondeur
+## Ajouter Na pour compléter les élements de la liste
+z<- lapply(z, function(v) { c(v,rep(NA,max.length-length(v)))})
+## Rbind
+z<-do.call(rbind,z)
+@
+\section{Code R:Modèle sous Jags}
+\label{appendix5}
+<<eval =F, echo = T, background = "white",size = 'scriptsize'>>=
+library(R2jags)
+library(runjags)
+library(coda)
+
+# Apporter le modèle proposé
+model.jags <- paste(getwd(),"/carbon-model.txt", sep="")
+#file.show(model.jags)
+
+# Data
+X = model.mat
+RR = matrix(as.numeric(solve(Omega.hat)),ncol =4,nrow = 4)
+data = list(v = 5,p = nrow(theta.hat),N = S,y = y,X = X,z = z
+,R = Omega.hat,size_par_site = size_par_site,a = 0.001, b= 0.001)
+
+#les valeurs initiales
+
+inits <- list(
+  list(theta = theta.hat,Prec = RR,tau = 0.01)
+  ,list(theta=matrix(runif(nrow(theta.hat)*4,0.9,1.1)
+  ,nrow(theta.hat),4)*theta.hat,
+  Prec = diag(1,ncol = 4,nrow = 4),tau = 0.02) 
+  ,list(theta=matrix(runif(nrow(theta.hat)*4,1,1.1)
+  ,nrow(theta.hat),4)*theta.hat,Prec = RR,tau = 0.05)
+)
+
+# Les paramètres à estimer
+params <- c("theta","Prec","tau")
+
+# Jags
+
+jagsfit_sim <- jags(data = data,inits = inits,
+parameters.to.save = params,n.iter = 75000
+,model.file = model.jags,n.chains = 3,n.burnin = 50000,n.thin = 5)
+@
+\section{Diagnostic de la convergence}
+\label{appendix6}
+<<eval = F , echo = T,background = "white",size = 'scriptsize'>>=
+library(coda)
+# Diagnostic de la convergence avec le package coda
+jagsfit.coda <- as.mcmc(jags.fit)
+
+par(mfrow = c(5,4), mar = c(4,4,4,4))
+traceplot(jagsfit.coda)
+par(mfrow = c(5,4), mar = c(4,4,4,4))
+densplot(jagsfit.coda)
+
+# Autocorrélation
+par(mfrow= c(5,4), mar = c(4,4,4,4))
+autocorr.plot(jagsfit.coda)
+
+# Gelman and Rubin using coda
+diag <- gelman.diag(jagsfit.coda,multivariate=FALSE)
+no_convergence<- which(diag[1]$psrf[,1] > 1.2)
+param_no_convergence<-diag[1]$psrf[no_convergence,1] 
+length(param_no_convergence)
+@
+\section{Test du modèle sous Jags}
+\label{appendix7}
+<<eval = T , echo = F , fig.height = 8, fig.width = 8>>=
+load(file = "jagsfit_sim.Rdata")
+theta.posterior <- matrix(0,ncol = 4 , nrow = 26)
+theta.post <- jagsfit_sim$BUGSoutput$sims.list$theta
+
+for (i in 1:4){
+  theta.posterior[,i] <- apply(theta.post[,,i],2,mean)
+}
+
+theta.true <- matrix(as.vector(theta.hat),ncol =4,nrow = ncol(model.mat))
+
+par(mfrow = c(2,2))
+for (i in 1:4){
+  plot(theta.posterior[,i],theta.true[,i],xlab ="theta.posterior"
+       ,ylab = "theta.true", main = paste("col_",i,sep = ""))
+  abline(a=0,b=1, col = "red")
+  }
+@
+\section{Code R: Application sur les données réelles}
+\label{appendix8}
+Le code R ainsi que les bandeaux de prédiction pour les 74 sites d'apprentissage:
+<<eval = T, echo = T, background = "white", warning = F, message = F, comment = NA,size = 'scriptsize'>>=
+library(R2jags)
+library(runjags)
+library(coda)
+
+
+# Apporter le modèle proposé
+model.jags <- paste(getwd(),"/carbon-model.txt", sep="")
+#file.show(model.jags)
+
+# ajouter à la base de donnée une colonne correspondante
+#à la profondeur moyenne par couche
+
+Data.selected$mean_level<-0.5*(Data.selected$level_top+Data.selected$level_base)
+
+# Apprentissage et validation
+ind_sites=c()
+set.seed(123)
+for (k in unique(Sol)){
+  ind_sites=c(ind_sites,which(Sol==k)[sample(1:length(which(Sol==k)),1)])
+}
+for (k in unique(Land)){
+  ind_sites=c(ind_sites,which(Land==k)[sample(1:length(which(Land==k)),1)]) 
+}
+ind_sites=unique(ind_sites)
+sites.ap=unique(Data.selected$site_nb)[ind_sites] 
+
+#  sites à choisir encore pour l'apprentissage :
+nbr= 74-length(sites.ap)                ######### à modifier ici !!!!!!!!!!!!!
+se=1:length(unique(Data.selected$site_nb))
+ind_restant=sample(se[-(ind_sites)], nbr, replace = F) # choix aléatoire des environ 74 indices de site restant à choisir pour l'apprentissage
+sites.ap=c(sites.ap,unique(Data.selected$site_nb)[ind_restant])
+ind.ap = c(ind_sites,ind_restant)
+sites.validation = unique(Data.selected$site_nb)[-ind.ap]
+
+### Tourner le modèle sur l'enssemble d'apprentissage
+
+# Sélection la base de données correspondante à l'ensemble d'apprentissage
+Data.learning = Data.selected[Data.selected$site_nb %in% sites.ap,]
+# préparation de y => (D14C) et z =>(la profondeur)
+hh = unstack(Data.learning, form=Data.learning$D14C ~ Data.learning$site_nb)
+nb_par_site = sapply(hh,function(x){length(unlist(x))})
+nb_par_site =  as.numeric(nb_par_site)
+max.length <- max(nb_par_site)
+
+y <- NULL
+z <- NULL
+size_par_site <- c()
+
+for (i in 1:length(unique(Data.learning$site_nb))){
+  s = Data.learning[Data.learning$site_nb == unique(Data.learning$site_nb)[i]
+                    ,c("D14C","mean_level")]
+  y <- rbind(y,c(s$D14C,rep(NA,max.length-nrow(s))))
+  z <- rbind(z, c(s$mean_level,rep(NA,max.length-nrow(s))))
+  size_par_site[i] <- nrow(s)
+}
+
+# Jags
+# Data
+X = model.mat[ind.ap,]
+RR = matrix(as.numeric(solve(Omega.hat)),ncol =4,nrow = 4)
+data = list(v = 5,p = nrow(theta.hat),N = nrow(X),y = y,X = X,
+       z = z,R = Omega.hat,size_par_site = size_par_site,
+       a = 0.001, b= 0.001)
+
+#les valeurs initiales
+
+inits <- list(
+  list(theta = theta.hat,Prec = RR,tau = 0.01),
+  
+  list(theta=matrix(runif(nrow(theta.hat)*4,0.9,1.1),
+  nrow(theta.hat),4)*theta.hat,Prec = diag(1,ncol = 4,nrow =4),    
+  tau = 0.02) ,
+  
+  list(theta=matrix(runif(nrow(theta.hat)*4,1,1.1),
+  nrow(theta.hat),  ,4)*theta.hat,Prec = RR,tau = 0.05)
+)
+
+# Les paramètres à estimer
+params <- c( "theta","Prec","tau")
+
+#jagsfit_real<-jags(data=data,inits=inits,parameters.to.save=params
+#,n.iter = 75000,model.file = model.jags,n.chains = #3,n.burnin = 50000
+#,n.thin = 5)
+
+#save(jagsfit_real,file="jagsfit_real.Rdata")
+load(file = "jagsfit_real.Rdata")
+
+## Diagnostic de la convergence
+diag<- jagsfit_real$BUGSoutput$summary[,8]
+ind_no_convergence <- which (diag> 1.2) 
+param_no_convergence<- diag[ind_no_convergence]
+length(param_no_convergence)
+range(param_no_convergence)
+
+#########################
+# bandeaux de prédiction 
+#########################
+
+n.sims = jagsfit_real$BUGSoutput$n.sims
+theta.posterior <- jagsfit_real$BUGSoutput$sims.list$theta
+tau.posterior <- jagsfit_real$BUGSoutput$sims.list$tau
+
+par(mfrow = c(5,4), mar = c(2,2,2,2))
+
+for (i in 1:74){# on a 74 sites d'apprentissage
+  
+  new.prof = seq(0,300,by=10)
+  prof = z[i,1:nb_par_site[i]]
+  model.posterior<-matrix(0, nrow = n.sims,ncol=length(new.prof))
+  y.posterior <- model.posterior
+  
+  for (g in 1:n.sims){
+    
+    # varible latente
+    phi.posterior<-mvrnorm(1,
+              model.mat[i,]%*%jagsfit_real$BUGSoutput$mean$theta,
+              solve(jagsfit_real$BUGSoutput$mean$Prec))
+    # modèle
+    model.posterior[g,] <- phi.posterior[1]+phi.posterior[2]*
+    exp(-(new.prof/exp(phi.posterior[3]))^(exp(phi.posterior[4])))
+    
+    # valeur prédite
+    y.posterior[g,] <- model.posterior[g,]+rnorm(length(new.prof),  
+                      0,sqrt(1/tau.posterior[g])) 
+  }
+  
+  # tracer les bandeaux de prédictions
+  
+  plot(new.prof,apply(model.posterior,2,mean),typ='l',
+       ylab=expression(paste(Delta^14,"C", sep = "")),
+       xlab='profondeur', main=paste("site ",sites.ap[i]),
+       lwd=3, ylim = c(min(apply(model.posterior,2,mean)),
+        max(y[i,1:nb_par_site[i]],na.rm = T)))
+ 
+  ympolygone=c(apply(y.posterior,2,quantile,prob=0.05),
+  apply(y.posterior,2,quantile,prob=0.95)[length(new.prof):1])
+  ypolygone=c(apply(model.posterior,2,quantile,prob=0.05),
+  apply(model.posterior,2,quantile,prob=0.95)[length(new.prof):1])
+  xpolygone=c(new.prof,new.prof[length(new.prof):1])
+  polygon(xpolygone,ympolygone,col="grey",density=c(60))
+  polygon(xpolygone,ypolygone,col="orange",density=c(60))
+  points(prof,y[i,1:nb_par_site[i]])
+}
+@
+Les bandeaux de prédiction pour les site de validation ainsi que le code r sont donnés ci-dessous:
+
+<<eval = T, echo = F>>=
+load(file = "jagsfit_real.Rdata")
+n.sims = jagsfit_real$BUGSoutput$n.sims
+theta.posterior <- jagsfit_real$BUGSoutput$sims.list$theta
+tau.posterior <- jagsfit_real$BUGSoutput$sims.list$tau
+XX = model.mat[-ind.ap,]
+par(mfrow = c(5,4), mar = c(2,2,2,2))
+for (i in 1:30){# on a 30 sites de validation
+  new.prof = seq(0,300,by=10)
+  s = Data.selected[Data.selected$site_nb == sites.validation[i],]
+  prof = s$mean_level
+  model.posterior <- matrix(0, nrow = n.sims,ncol = length(new.prof))
+  y.posterior <- model.posterior
+  for (g in 1:n.sims){
+phi.posterior <- mvrnorm(1,
+        XX[i,]%*%jagsfit_real$BUGSoutput$mean$theta,
+        solve(jagsfit_real$BUGSoutput$mean$Prec))
+model.posterior[g,] <-phi.posterior[1]+phi.posterior[2]*
+      exp(-(new.prof/exp(phi.posterior[3]))^(exp(phi.posterior[4])))
+  y.posterior[g,]<-model.posterior[g,]+ 
+      rnorm(length(new.prof),0,sqrt(1/tau.posterior[g])) 
+  }
+  # tracer les bandeaux de prédictions
+  plot(new.prof,apply(model.posterior,2,mean),typ='l',
+       ylab=expression(paste(Delta^14,"C", sep = "")),xlab='profondeur'        ,main=paste("site ",sites.validation[i]),
+       lwd=3, ylim = c(min(apply(model.posterior,2,mean)),
+        max(y[i,1:nb_par_site[i]],na.rm = T)))
+  ympolygone=c(apply(y.posterior,2,quantile,prob=0.05),
+    apply(y.posterior,2,quantile,prob=0.95)[length(new.prof):1])
+  ypolygone=c(apply(model.posterior,2,quantile,prob=0.05),
+      apply(model.posterior,2,quantile,prob=0.95)[length(new.prof):1])
+  xpolygone=c(new.prof,new.prof[length(new.prof):1])
+  polygon(xpolygone,ympolygone,col="grey",density=c(60))
+  polygon(xpolygone,ypolygone,col="orange",density=c(60))
+  points(prof,s$D14C)
+}
+@
+\section{Code R: Séléction de variable}
+\label{appendix9}
+<<eval = T, echo = T,background = "white", warning = F,message = F, comment = NA,size = 'scriptsize'>>=
+library(R2jags)
+library(coda)
+
+
+# Apporter le modèle proposé pour faire de la sélection
+model.jags <- paste(getwd(),"/carbon-model-selection.txt", sep="")
+#file.show(model.jags)
+
+
+# préparation de y => (D14C) et z =>(la profondeur)
+hh = unstack(Data.selected,form=Data.selected$D14C ~ Data.selected$site_nb)
+
+nb_par_site = sapply(hh,function(x){length(unlist(x))})
+nb_par_site =  as.numeric(nb_par_site)
+max.length <- max(nb_par_site)
+
+y <- NULL
+z <- NULL
+size_par_site <- c()
+
+for (i in 1:length(unique(Data.selected$site_nb))){
+  s = Data.selected[Data.selected$site_nb==
+  unique(Data.selected$site_nb)[i],c("D14C","mean_level")]
+  
+  y <- rbind(y,c(s$D14C,rep(NA,max.length-nrow(s))))
+  z <- rbind(z, c(s$mean_level,rep(NA,max.length-nrow(s))))
+  size_par_site[i] <- nrow(s)
+}
+
+
+# Data
+X = model.mat
+RR = matrix(as.numeric(solve(Omega.hat)),ncol =4,nrow = 4)
+data=list(N=S,y=y,X=X,z=z,R=Omega.hat,
+     size_par_site= size_par_site,pos=c(1,rep(2,7),
+     rep(3,10),4:11),ncov=26)
+
+
+#les valeurs initiales
+
+inits <- list(
+  list(Prec = RR,phi =phi.sim,sd_y = 20,beta = theta.hat,
+       ind1 = sample(1:2 ,replace = T ,size = 26),
+       ind2 = sample(1:2 ,replace = T ,size = 26),
+       ind3 = sample(1:2 ,replace = T ,size = 26),
+       ind4= sample(1:2 ,replace = T ,size = 26) ),
+  list(Prec = RR,phi = matrix(runif(nrow(phi.sim)*4,0.9,1.1),
+       nrow(phi.sim),4)*phi.sim,sd_y = 11,
+       beta=matrix(runif(nrow(theta.hat)*4,0.9,1.1),
+       nrow(theta.hat),4)*theta.hat,
+       ind1 = sample(1:2 ,replace = T ,size = 26),
+       ind2 = sample(1:2 ,replace = T ,size = 26), 
+       ind3 = sample(1:2 ,replace = T ,size = 26),
+       ind4 = sample(1:2 ,replace = T ,size = 26)) 
+,list(Prec=RR,phi=matrix(runif(nrow(phi.sim)*4,1,1.1),
+      nrow(phi.sim),4)*phi.sim,
+      sd_y = 10,beta = theta.hat,
+      ind1 = sample(1:2 ,replace = T,size = 26),
+      ind2 = sample(1:2 ,replace = T ,size = 26),
+      ind3 = sample(1:2 ,replace = T ,size = 26),
+      ind4 = sample(1:2 ,replace = T ,size = 26))
+)
+
+# Les paramètres à estimer
+params <- c("beta","Prec","sd_y","gamma1","gamma2","gamma3","gamma4")
+
+# Jags
+#jagsfit_selection <- jags(data = data,inits = inits,
+#              parameters.to.save = params,n.iter = 75000,
+#              model.file =  model.jags,n.chains = 3,
+#              n.burnin = 50000,n.thin = 5)
+
+
+#save(jagsfit_selection,file="jagsfit-selection.Rdata")
+load(file = "jagsfit-selection.Rdata")
+
+y.posterior <- list()
+for (i in 1:104){# on a 104 sites
+   prof = z[i,1:size_par_site[i]]
+  
+    phi.posterior <- mvrnorm(1,
+    model.mat[i,]%*%jagsfit_selection$BUGSoutput$mean$beta,
+    solve(jagsfit_selection$BUGSoutput$mean$Prec))
+    
+    model.posterior <- phi.posterior[1]+phi.posterior[2]*
+    exp(-(prof/exp(phi.posterior[3]))^(exp(phi.posterior[4])))
+    
+    y.posterior[[i]]<-model.posterior+
+                     rnorm(size_par_site[i],0,
+                    sqrt(jagsfit_selection$BUGSoutput$mean$sd_y)) 
+  }
+
+plot(Data.selected$D14C,unlist(y.posterior), type = "p", 
+     xlab = expression(paste("observed", Delta ^14 ,C , " [‰]" )), 
+     ylab = expression(paste("Predict",  Delta ^14 ,C , " [‰]" )))
+
+abline(a=0,b=1, col = "red")
+@
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{mabiblio}
+\end{document}

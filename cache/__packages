@@ -1,0 +1,17 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+knitr
+maps
+mapdata
+MASS
+operators
+ggplot2
+coda
+rjags
+R2jags
+runjags
